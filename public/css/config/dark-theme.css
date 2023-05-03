@@ -1,0 +1,30 @@
+.sideBar.dark {
+  background-color: var(--dark-color);
+}
+
+.theme-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.theme-button .light-theme.hide,
+.theme-button .dark-theme.hide {
+  display: none;
+}
+
+.data-container.dark {
+  background-color: var(--secondary-color);
+  color: #fff;
+}
+
+header.dark {
+  background-color: var(--hover-menu-color);
+  color: #fff;
+}
+
+header.dark .title span{
+  color: var(--dark-color);
+}

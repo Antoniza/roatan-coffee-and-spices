@@ -1,0 +1,29 @@
+.header-sales{
+    width: 100% !important;
+    width: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-sales a button{
+    padding: 15px 10px;
+    border: none;
+    border-radius: 15px;
+    background-color: rgb(71, 153, 71);
+    font-size: 15px;
+    color: var(--font-menu-color);
+    cursor: pointer;
+}
+
+.header-sales button:hover{
+    background-color: rgb(77, 206, 77);
+}
+
+.table-container{
+    margin-top: 10px;
+}
+
+.table-container h1{
+    margin-bottom: 10px;
+}
