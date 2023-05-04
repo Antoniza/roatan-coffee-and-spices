@@ -1,0 +1,30 @@
+#clients-modal {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 40%;
+  transition: all 0.4s ease-in-out;
+  z-index: 25;
+  padding: 30px;
+}
+
+#clients-modal.show {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  transform: translateY(0);
+  transition: all 0.4s ease-in-out;
+}
+
+.modal-body {
+  background-color: #fff;
+  border-radius: 15px;
+  width: 100%;
+  height: auto;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}

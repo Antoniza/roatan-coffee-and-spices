@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClientsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -45,9 +46,7 @@ Route::get('/dashboard/products', function () {
     return view('admin.products');
 })->name('dashboard-products')->middleware('auth');
 
-Route::get('/dashboard/clients', function () {
-    return view('admin.clients');
-})->name('dashboard-clients')->middleware('auth');
+Route::get('/dashboard/clients', [ClientsController::class, 'index'])->name('dashboard-clients')->middleware('auth');
 
 Route::get('/dashboard/settings', [SettingsController::class, 'index'])->name('dashboard-settings')->middleware('auth');
 

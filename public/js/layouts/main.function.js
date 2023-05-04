@@ -44,7 +44,18 @@ $('.menu-item.logout_button').click(function (e) {
   $(this).closest('li').addClass('menu-selected');
 
   e.preventDefault();
-  window.location.href ='/dashboard';
+  window.location.href = '/dashboard';
+});
+
+// * MODAL HANDLE
+$('.modal-shadow').click(function (){
+  $('.modal').removeClass('show');
+  $(this).removeClass('show');
+})
+
+$('.cancel-button').click(function () {
+  $('.modal').removeClass('show');
+  $('.modal-shadow').removeClass('show');
 });
 
 // * DARK MODE HANDLER
@@ -65,10 +76,14 @@ $(document).on("contextmenu", "body", function (e) {
   $('.sideBar').toggleClass('changeMenuSize');
 });
 
-$(document).bind('keydown', 'ctrl+v', function(){
-  alert("Has pulsado ctrl+l");
+// * SHORTCUTS SETTINGS
+
+$(document).bind('keydown', 'F1', function (e) {
+  e.preventDefault();
+  $('#clients-modal').toggleClass('show');
+  $('.modal-shadow').toggleClass('show');
 });
 
-$(document).bind('keydown', 'esc', function(){
-  $('.data-container').load($(location).attr('href','dashboard'));
+$(document).bind('keydown', 'esc', function () {
+  $('.data-container').load($(location).attr('href', 'dashboard'));
 });

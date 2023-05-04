@@ -30,5 +30,45 @@
     </div>
 </body>
 <script>
-    $('#sales-table').DataTable();
+    var editor;
+    $('#sales-table').DataTable({
+        language: {
+            processing:     "Tratamiento en proceso...",
+            search:         "Buscar",
+            lengthMenu:     "Mostrar _MENU_ registros por pagina",
+            info:           "Mostrando del registro _START_ al _END_ de _TOTAL_ registros",
+            infoEmpty:      "0 de 0 registros",
+            infoFiltered:   "(Filtro de _MAX_ registros en total)",
+            infoPostFix:    "",
+            loadingRecords: "Cargando registros...",
+            zeroRecords:    "No hay registros que cargar",
+            emptyTable:     "No hay datos disponibles en la tabla",
+            paginate: {
+                first:      "Primero",
+                previous:   "Previo",
+                next:       "Siguiente",
+                last:       "Ultimo"
+            },
+            aria: {
+                sortAscending:  ": Activar orden ascendente",
+                sortDescending: ": Activar orden descendente"
+            }
+        },
+        buttons: [
+            { extend: 'create', editor: editor },
+            { extend: 'edit',   editor: editor },
+            { extend: 'remove', editor: editor },
+            {
+                extend: 'collection',
+                text: 'Export',
+                buttons: [
+                    'copy',
+                    'excel',
+                    'csv',
+                    'pdf',
+                    'print'
+                ]
+            }
+        ]
+    });
 </script>

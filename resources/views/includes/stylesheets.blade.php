@@ -8,7 +8,10 @@
 {{-- ! CONFIG CSS LIKE VARIABLES AND THEMES --}}
 <link rel="stylesheet" href="{{asset('css/config/config.css')}}">
 <link rel="stylesheet" href="{{asset('css/config/dark-theme.css')}}">
+<link rel="stylesheet" href="{{asset('css/config/modals.css')}}">
+<link rel="stylesheet" href="{{asset('css/config/forms.css')}}">
 
 {{-- ! STYLES FOR EACH SECTION OF THE SYSTEM --}}
 <link rel="stylesheet" href="{{asset('css/admin/sales.css')}}">
+<link rel="stylesheet" href="{{asset('css/admin/clients.css')}}">
 <link rel="stylesheet" href="{{asset('css/admin/settings.css')}}">
