@@ -48,6 +48,8 @@ Route::get('/dashboard/products', function () {
 
 Route::get('/dashboard/clients', [ClientsController::class, 'index'])->name('dashboard-clients')->middleware('auth');
 
+Route::post('/dashboard/clients', [ClientsController::class, 'store'])->name('dashboard-clients-post')->middleware('auth');
+
 Route::get('/dashboard/settings', [SettingsController::class, 'index'])->name('dashboard-settings')->middleware('auth');
 
 Route::post('/dashboard/settings', [SettingsController::class, 'store'])->name('dashboard-settings-post')->middleware('auth');

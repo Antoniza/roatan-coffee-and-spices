@@ -14,6 +14,7 @@ class SettingsController extends Controller
     public function store(Request $request){
         $request->validate([
             'cai' => ['required', 'min:37'],
+            'rtn' => ['required', 'min:14'],
             'start_date' => ['required'],
             'end_date' => ['required'],
             'start_range' => ['required'],
@@ -23,6 +24,7 @@ class SettingsController extends Controller
 
         $setting = new InvoiceSetting();
         $setting -> cai = $request -> cai;
+        $setting -> rtn = $request -> rtn;
         $setting -> start_date = $request -> start_date;
         $setting -> end_date = $request -> end_date;
         $setting -> start_range = $request -> start_range;
@@ -30,7 +32,7 @@ class SettingsController extends Controller
         $setting -> update_by = auth()->user()->id;
         $setting -> save();
 
-        return response()->json(['message'=>'Configuración CAI guardada.']);
+        return response()->json(['message'=>'Encabezado de factura actualizado.']);
     }
 
     public function update(Request $request, $id){

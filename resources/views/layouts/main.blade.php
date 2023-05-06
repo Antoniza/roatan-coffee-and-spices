@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -47,7 +47,7 @@
             <div class="backdrop"></div>
 
             <div class="modals">
-                @include('includes.newClient')
+                @include('includes.admin.newClient')
             </div>
 
             <div class="content">
@@ -73,7 +73,6 @@
                 </div>
             </div>
         </div>
-        
     </div>
 @endauth
 </body>

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('invoice_settings', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
             $table->string('cai');
+            $table->string('rtn');
             $table->date('start_date');
             $table->date('end_date');
             $table->string('start_range');

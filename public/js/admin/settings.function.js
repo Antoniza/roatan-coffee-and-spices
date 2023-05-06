@@ -2,6 +2,7 @@ jQuery(document).ready(function () {
   jQuery("#saveCaiData").click(function (e) {
     var dataForm = {
       cai: jQuery("#caiCode").val(),
+      rtn: jQuery("#rtnCode").val(),
       start_date: jQuery("#startDate").val(),
       end_date: jQuery("#endDate").val(),
       start_range: jQuery("#startRange").val(),
@@ -18,8 +19,12 @@ jQuery(document).ready(function () {
       method: "post",
       data: dataForm,
       success: function (result) {
-        $('.settings-alert').addClass('show');
+        $('.settings-alert').toggleClass('show');
         $("#settings-alert-message").html(result.message);
+        console.log($('.settings-alert'));
+        setTimeout(function() {
+          $('.settings-alert').toggleClass('show');
+        }, 5500);
       },
     });
   });
@@ -46,6 +51,10 @@ jQuery(document).ready(function () {
       success: function (result) {
         $('.settings-alert').addClass('show');
         $("#settings-alert-message").html(result.message);
+        console.log($('.settings-alert'));
+        setTimeout(function() {
+          $('.settings-alert').toggleClass('show');
+        }, 5200);
       },
     });
   });

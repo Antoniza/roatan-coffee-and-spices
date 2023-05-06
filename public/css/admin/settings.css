@@ -6,7 +6,7 @@
 
 .setting-card {
   max-width: 640px;
-  height: 400px;
+  height: max-content;
   display: flex;
   justify-content: flex-start;
   align-content: center;
@@ -115,16 +115,16 @@
   background-color: rgb(58, 190, 58);
   cursor: pointer;
   user-select: none;
-  transform: translateX(110%);
+  transform: translateX(150%);
 }
 
 .settings-alert.show{
-  animation: fade-out 5s 1s forwards ease-in-out;
+  animation: fade-out 5s forwards ease-in-out;
 }
 
 @keyframes fade-out {
   0%{
-    transform: translateX(110%);
+    transform: translateX(150%);
   }
   30%{
     transform: translateX(0);
@@ -133,6 +133,6 @@
     transform: translateX(0);
   }
   100%{
-    transform: translateX(110%);
+    transform: translateX(150%);
   }
 }

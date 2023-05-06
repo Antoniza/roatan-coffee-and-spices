@@ -16,6 +16,10 @@
                             <label for="">CAI</label>
                             <input type="text" name="caiCode" id="caiCode" placeholder="Ingrese el CAI" class="form-control" value="{{ $settings[0]->cai }}">
                         </div>
+                        <div class="form-group">
+                            <label for="">RTN</label>
+                            <input type="text" name="rtnCode" id="rtnCode" placeholder="Ingrese el RTN" class="form-control" value="{{ $settings[0]->rtn }}">
+                        </div>
                         <div class="form-group-container">
                             <div class="form-group">
                                 <label for="">Fecha Inicial</label>
@@ -38,6 +42,10 @@
                         <div class="form-group">
                             <label for="">CAI</label>
                             <input type="text" name="caiCode" id="caiCode" placeholder="Ingrese el CAI" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="">RTN</label>
+                            <input type="text" name="rtnCode" id="rtnCode" placeholder="Ingrese el RTN" class="form-control">
                         </div>
                         <div class="form-group-container">
                             <div class="form-group">
@@ -68,7 +76,7 @@
         </div>
     </div>
     <div class="settings-alert">
-        <h4 id="settings-alert-message">Datos guardados exitosamente.</h4>
+        <h4 id="settings-alert-message">---</h4>
     </div>
 </body>
 <script src="{{asset('js/admin/settings.function.js')}}"></script>
