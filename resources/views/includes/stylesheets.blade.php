@@ -15,3 +15,5 @@
 <link rel="stylesheet" href="{{asset('css/admin/sales.css')}}">
 <link rel="stylesheet" href="{{asset('css/admin/clients.css')}}">
 <link rel="stylesheet" href="{{asset('css/admin/settings.css')}}">
+<link rel="stylesheet" href="{{asset('css/admin/products.css')}}">
+<link rel="stylesheet" href="{{asset('css/admin/start.css')}}">

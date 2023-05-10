@@ -11,6 +11,11 @@
                 <div class="form-group">
                     <label for="">Nombre Completo</label>
                     <input type="text" name="client_full_name" id="client_full_name" class="form-control">
+                    @error('full_name')
+                        <center>
+                            <h5 class="alert-fail">{{ $message }}</h5>
+                        </center>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="">Identidad</label>

@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 
-class DashboardController extends Controller
+class StartController extends Controller
 {
-
     public $chart1;
 
     public function index(){
@@ -35,6 +34,6 @@ class DashboardController extends Controller
         ];
         $chart_sales = new LaravelChart($chart_options_sales);
 
-        return response()->view('admin.index', compact('chart_clients', 'chart_sales'));
+        return response()->view('admin.start', compact('chart_clients', 'chart_sales'));
     }
 }

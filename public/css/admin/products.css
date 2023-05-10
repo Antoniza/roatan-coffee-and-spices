@@ -1,0 +1,21 @@
+.header-products{
+    width: 100% !important;
+    width: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-products a button{
+    padding: 15px 10px;
+    border: none;
+    border-radius: 15px;
+    background-color: rgb(71, 153, 71);
+    font-size: 15px;
+    color: var(--font-menu-color);
+    cursor: pointer;
+}
+
+.header-products button:hover{
+    background-color: rgb(77, 206, 77);
+}

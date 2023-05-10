@@ -1,7 +1,7 @@
 <body>
     <div class="header-sales">
         <h1>Sección de Clientes</h1>
-        <a href="#" id="newClientButton"><button> <span><i class="fa-solid fa-cart-plus"></i></span> Nuevo Cliente</button></a>
+        <a href="#" id="newClientButton"><button> <span><i class="fa-solid fa-user-plus"></i></span> Nuevo Cliente</button></a>
     </div>
     
     <div class="table-container">
@@ -10,19 +10,20 @@
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Cliente</th>
-                    <th># Factura</th>
-                    <th>Fecha</th>
+                    <th>Name</th>
+                    <th>Correo</th>
+                    <th>Telefono</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($clients as $item)
                     <tr>
-                        <tb>{{$item->id}}</tb>
-                        <tb>{{$item->name}}</tb>
-                        <tb>{{$item->email}}</tb>
-                        <tb>{{$item->phone}}</tb>
+                        <td>{{$item->id}}</td>
+                        <td>{{$item->full_name}}</td>
+                        <td>{{$item->email}}</td>
+                        <td>{{$item->phone}}</td>
+                        <td> edit | delete</td>
                     </tr>
                 @endforeach
             </tbody>

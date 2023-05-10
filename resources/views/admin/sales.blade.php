@@ -19,10 +19,10 @@
             <tbody>
                 @foreach ($sales as $item)
                     <tr>
-                        <tb>{{$item->id}}</tb>
-                        <tb>{{$item->id_client}}</tb>
-                        <tb>{{$item->id_invoice}}</tb>
-                        <tb>{{$item->created_at}}</tb>
+                        <td>{{$item->id}}</td>
+                        <td>{{$item->id_client}}</td>
+                        <td>{{$item->id_invoice}}</td>
+                        <td>{{$item->created_at}}</td>
                     </tr>
                 @endforeach
             </tbody>

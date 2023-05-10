@@ -60,7 +60,7 @@
                         <i class="fa-solid fa-bars"></i>
                     </div>
 
-                    <h1 class="title"><span>Coffee &</span> Spices</h1>
+                    <h1 class="title">Roatán <span>Coffee &</span> Spices</h1>
 
                     <div class="profile">
                         <img src="{{asset('img/profile2.jpg')}}" alt="" />
