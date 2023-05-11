@@ -28,3 +28,21 @@ header.dark {
 header.dark .title span{
   color: var(--dark-color);
 }
+
+.data-container.dark .table-container .dataTables_wrapper{
+  background-color: #00000030;
+  border-radius: 15px;
+}
+
+.data-container.dark .table-container table{
+  color: #000 !important;
+}
+
+.data-container.dark .table-container table thead{
+  background-color: #cccccc !important;
+  color: #000 !important;
+}
+
+.data-container.dark .table-container .dataTables_filter input{
+  background-color: #fff;
+}

@@ -6,7 +6,7 @@
     
     <div class="table-container">
         <h3>Historial de ventas</h3>
-        <table id="sales-table" class="hover stripe row-border" style="width:100%">
+        <table id="sales-table" class="hover stripe row-border display nowrap" style="width:100%">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -32,6 +32,27 @@
 <script>
     var editor;
     $('#sales-table').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'pdf',
+                exportOptions: {
+                    columns: [ 0, 1, 2, 3]
+                }
+            },
+            {
+                extend: 'excel',
+                exportOptions: {
+                    columns: [ 0, 1, 2, 3]
+                },
+                className: 'export-excel'
+            },{
+                extend: 'print',
+                exportOptions: {
+                    columns: [ 0, 1, 2, 3]
+                }
+            }
+        ],
         language: {
             processing:     "Tratamiento en proceso...",
             search:         "Buscar",
@@ -53,22 +74,6 @@
                 sortAscending:  ": Activar orden ascendente",
                 sortDescending: ": Activar orden descendente"
             }
-        },
-        buttons: [
-            { extend: 'create', editor: editor },
-            { extend: 'edit',   editor: editor },
-            { extend: 'remove', editor: editor },
-            {
-                extend: 'collection',
-                text: 'Export',
-                buttons: [
-                    'copy',
-                    'excel',
-                    'csv',
-                    'pdf',
-                    'print'
-                ]
-            }
-        ]
+        }
     });
 </script>

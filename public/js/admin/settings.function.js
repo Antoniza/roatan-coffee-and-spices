@@ -1,5 +1,6 @@
 jQuery(document).ready(function () {
   jQuery("#saveCaiData").click(function (e) {
+    $('.loading').css('display', 'flex');
     var dataForm = {
       cai: jQuery("#caiCode").val(),
       rtn: jQuery("#rtnCode").val(),
@@ -21,7 +22,7 @@ jQuery(document).ready(function () {
       success: function (result) {
         $('.settings-alert').toggleClass('show');
         $("#settings-alert-message").html(result.message);
-        console.log($('.settings-alert'));
+        $('.loading').css('display', 'none');
         setTimeout(function() {
           $('.settings-alert').toggleClass('show');
         }, 5500);
@@ -30,6 +31,7 @@ jQuery(document).ready(function () {
   });
 
   jQuery("#updateCaiData").click(function (e) {
+    $('.loading').css('display', 'flex');
     var dataForm = {
       cai: jQuery("#caiCode").val(),
       start_date: jQuery("#startDate").val(),
@@ -51,7 +53,7 @@ jQuery(document).ready(function () {
       success: function (result) {
         $('.settings-alert').addClass('show');
         $("#settings-alert-message").html(result.message);
-        console.log($('.settings-alert'));
+        $('.loading').css('display', 'none');
         setTimeout(function() {
           $('.settings-alert').toggleClass('show');
         }, 5200);

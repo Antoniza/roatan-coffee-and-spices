@@ -34,3 +34,105 @@ body {
 ::-webkit-scrollbar-thumb{
   background-color: var(--secondary-color);
 }
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading{
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 35;
+}
+
+.dataTables_wrapper{
+  margin-top: 1rem;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.table-container{
+  overflow-y: hidden;
+}
+
+.dataTables_wrapper table{
+  margin-top: 2rem;
+}
+
+.dataTables_wrapper thead{
+  background-color: var(--secondary-color);
+  color: #fff;
+}
+
+.dataTables_wrapper tbody tr a{
+  color: #000000;
+}
+
+.dataTables_wrapper tbody tr:nth-child(even) {background: #CCC}
+
+.dataTables_wrapper tbody tr:nth-child(odd) {background: #FFF}
+
+.buttons-excel{
+  padding: 10px 15px;
+  background-color: rgb(15, 122, 33);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  margin: 0 10px 0 10px;
+}
+
+.buttons-excel:hover{
+  background-color: rgb(15, 63, 23);
+}
+
+.buttons-pdf{
+  padding: 10px 15px;
+  background-color: rgb(146, 40, 40);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.buttons-pdf:hover{
+  background-color: rgb(112, 38, 38);
+}
+
+.buttons-print{
+  padding: 10px 15px;
+  background-color: rgb(148, 148, 148);
+  color: #000000;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.buttons-print:hover{
+  background-color: rgb(105, 105, 105);
+}

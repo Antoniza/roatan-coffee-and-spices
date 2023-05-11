@@ -1,12 +1,12 @@
 <body>
     <div class="header-products">
         <h1>Sección de Productos</h1>
-        <a href="#"><button> <span><i class="fa-solid fa-box-open"></i></span> Nuevo Producto</button></a>
+        <a href="#" id="newProductButton"><button> <span><i class="fa-solid fa-box-open"></i></span> Nuevo Producto</button></a>
     </div>
     
     <div class="table-container">
         <h3>Inventario</h3>
-        <table id="products-table" class="hover stripe row-border" style="width:100%">
+        <table id="products-table" class="hover stripe row-border display nowrap" style="width:100%">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -30,9 +30,30 @@
         </table>
     </div>
 </body>
+<script src="{{ asset('js/admin/products.function.js') }}"></script>
 <script>
     var editor;
     $('#products-table').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'pdf',
+                exportOptions: {
+                    columns: [ 0, 1, 2]
+                }
+            },
+            {
+                extend: 'excel',
+                exportOptions: {
+                    columns: [ 0, 1, 2]
+                }
+            },{
+                extend: 'print',
+                exportOptions: {
+                    columns: [ 0, 1, 2]
+                }
+            }
+        ],
         language: {
             processing:     "Tratamiento en proceso...",
             search:         "Buscar",
@@ -54,22 +75,6 @@
                 sortAscending:  ": Activar orden ascendente",
                 sortDescending: ": Activar orden descendente"
             }
-        },
-        buttons: [
-            { extend: 'create', editor: editor },
-            { extend: 'edit',   editor: editor },
-            { extend: 'remove', editor: editor },
-            {
-                extend: 'collection',
-                text: 'Export',
-                buttons: [
-                    'copy',
-                    'excel',
-                    'csv',
-                    'pdf',
-                    'print'
-                ]
-            }
-        ]
+        }
     });
 </script>

@@ -54,6 +54,8 @@ Route::get('/dashboard/clients', [ClientsController::class, 'index'])->name('das
 
 Route::post('/dashboard/clients', [ClientsController::class, 'store'])->name('dashboard-clients-post')->middleware('auth');
 
+Route::delete('/dashboard/clients/{id}', [ClientsController::class, 'delete'])->name('dashboard-delete-client')->middleware('auth');
+
 // * SETTINGS ROUTES
 
 Route::get('/dashboard/settings', [SettingsController::class, 'index'])->name('dashboard-settings')->middleware('auth');

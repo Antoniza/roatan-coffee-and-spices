@@ -1,3 +1,14 @@
+jQuery(document).ready(function () {
+  let darkMode = localStorage.getItem('darkMode');
+  if (darkMode) {
+    $('.sideBar').toggleClass('dark');
+    $('.data-container').toggleClass('dark');
+    $('header').toggleClass('dark');
+    $('.light-theme').toggleClass('hide');
+    $('.dark-theme').toggleClass('hide');
+  }
+});
+
 $('#desktop').click(function () {
   $('.menu-item').toggleClass('hideMenuList');
   $('.sideBar').toggleClass('changeMenuSize');
@@ -48,7 +59,7 @@ $('.menu-item.logout_button').click(function (e) {
 });
 
 // * MODAL HANDLE
-$('.modal-shadow').click(function (){
+$('.modal-shadow').click(function () {
   $('.modal').removeClass('show');
   $(this).removeClass('show');
 })
@@ -66,6 +77,9 @@ $('.theme-button').click(function () {
   $('header').toggleClass('dark');
   $('.light-theme').toggleClass('hide');
   $('.dark-theme').toggleClass('hide');
+
+  let darkMode = localStorage.getItem('darkMode');
+  localStorage.setItem('darkMode', darkMode ? false : true);
 });
 
 // * OPEN SIDEBAR WITH RIGHT CLICK
@@ -80,8 +94,7 @@ $(document).on("contextmenu", "body", function (e) {
 
 $(document).bind('keydown', 'F1', function (e) {
   e.preventDefault();
-  $('#clients-modal').toggleClass('show');
-  $('.modal-shadow').toggleClass('show');
+  $('.data-container').load('/dashboard/clients');
 });
 
 $(document).bind('keydown', 'esc', function () {
