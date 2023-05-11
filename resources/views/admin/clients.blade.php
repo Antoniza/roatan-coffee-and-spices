@@ -40,30 +40,46 @@
     $('#clients-table').DataTable({
         dom: 'Bfrtip',
         buttons: [{
-                extend: 'pdf',
-                exportOptions: {
-                    columns: [0, 1, 2, 3, 4]
-                }
-            },
-            {
-                extend: 'excel',
-                exportOptions: {
-                    columns: [0, 1, 2, 3, 4]
-                }
-            }, {
-                extend: 'print',
-                exportOptions: {
-                    columns: [0, 1, 2, 3, 4]
-                },
-                title: 'Filename here.',
-                customize: function(win) {
-                    $(win.document.body).children("h1:first").remove();
-                }
+            extend: 'excel',
+            text: '<i class="fa-solid fa-file-excel"></i> Excel',
+            exportOptions: {
+                columns: [0, 1, 2, 3, 4]
             }
-        ],
+        }, {
+            extend: 'print',
+            text: '<i class="fa-solid fa-print"></i> Imprimir',
+            exportOptions: {
+                columns: [0, 1, 2, 3, 4]
+            },
+            title: 'Roatán Coffee & Spices - Clientes',
+            customize: function(win) {
+                $(win.document.body).find('h1').remove();
+
+                $(win.document.body)
+                    .css('font-size', '10pt')
+                    .prepend(
+                        `
+                            <div style="width:100%; height: auto; padding-bottom: 2rem; display: flex; justify-content: flex-start; aling-items: center; flex-direction: row;">
+                                <div style="width: 40%; height: 100%">
+                                    <img src="{{ asset('img/RoatancoffeeSpices.png') }}" style="width: 80%" />
+                                </div>
+                                <div style="width: 60%; margin-top: 5%;">
+                                    <h2>Lista de Clientes</h2>
+                                </div>
+                            </div>
+
+                            `,
+                        '<img src="{{ asset('img/RoatancoffeeSpices.png') }}" style="opacity: 0.3; position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto; width: 80%" />'
+                    );
+
+                $(win.document.body).find('table')
+                    .addClass('compact')
+                    .css('font-size', 'inherit');
+            }
+        }],
         language: {
             processing: "Tratamiento en proceso...",
-            search: "Buscar",
+            search: "<i class='fa-solid fa-magnifying-glass'></i> Buscar",
             lengthMenu: "Mostrar _MENU_ registros por pagina",
             info: "Mostrando del registro _START_ al _END_ de _TOTAL_ registros",
             infoEmpty: "0 de 0 registros",

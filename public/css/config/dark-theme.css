@@ -46,3 +46,12 @@ header.dark .title span{
 .data-container.dark .table-container .dataTables_filter input{
   background-color: #fff;
 }
+
+.data-container.dark .charts-container {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.data-container.dark .dashboard-container .card .card-body{
+  background-color: rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 8px #fff;
+}

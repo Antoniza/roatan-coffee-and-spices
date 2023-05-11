@@ -1,9 +1,10 @@
 <body>
     <div class="header-products">
         <h1>Sección de Productos</h1>
-        <a href="#" id="newProductButton"><button> <span><i class="fa-solid fa-box-open"></i></span> Nuevo Producto</button></a>
+        <a href="#" id="newProductButton"><button> <span><i class="fa-solid fa-box-open"></i></span> Nuevo
+                Producto</button></a>
     </div>
-    
+
     <div class="table-container">
         <h3>Inventario</h3>
         <table id="products-table" class="hover stripe row-border display nowrap" style="width:100%">
@@ -19,10 +20,10 @@
             <tbody>
                 @foreach ($products as $item)
                     <tr>
-                        <tb>{{$item->id}}</tb>
-                        <tb>{{$item->name}}</tb>
-                        <tb>{{$item->quantity}}</tb>
-                        <tb>{{$item->price}}</tb>
+                        <tb>{{ $item->id }}</tb>
+                        <tb>{{ $item->name }}</tb>
+                        <tb>{{ $item->quantity }}</tb>
+                        <tb>{{ $item->price }}</tb>
                         <tb> edit | delete</tb>
                     </tr>
                 @endforeach
@@ -35,44 +36,62 @@
     var editor;
     $('#products-table').DataTable({
         dom: 'Bfrtip',
-        buttons: [
-            {
-                extend: 'pdf',
-                exportOptions: {
-                    columns: [ 0, 1, 2]
-                }
-            },
-            {
-                extend: 'excel',
-                exportOptions: {
-                    columns: [ 0, 1, 2]
-                }
-            },{
-                extend: 'print',
-                exportOptions: {
-                    columns: [ 0, 1, 2]
-                }
+        buttons: [{
+            extend: 'excel',
+            text: '<i class="fa-solid fa-file-excel"></i> Excel',
+            exportOptions: {
+                columns: [0, 1, 2]
             }
-        ],
+        }, {
+            extend: 'print',
+            text: '<i class="fa-solid fa-print"></i> Imprimir',
+            exportOptions: {
+                columns: [0, 1, 2]
+            },
+            customize: function(win) {
+                $(win.document.body).find('h1').remove();
+
+                $(win.document.body)
+                    .css('font-size', '10pt')
+                    .prepend(
+                        `
+                            <div style="width:100%; height: auto; padding-bottom: 2rem; display: flex; justify-content: flex-start; aling-items: center; flex-direction: row;">
+                                <div style="width: 40%; height: 100%">
+                                    <img src="{{ asset('img/RoatancoffeeSpices.png') }}" style="width: 80%" />
+                                </div>
+                                <div style="width: 60%; margin-top: 5%;">
+                                    <h2>Lista de Productos</h2>
+                                </div>
+                            </div>
+
+                            `,
+                        '<img src="{{ asset('img/RoatancoffeeSpices.png') }}" style="opacity: 0.3; position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto; width: 80%" />'
+                    );
+
+                $(win.document.body).find('table')
+                    .addClass('compact')
+                    .css('font-size', 'inherit');
+            }
+        }],
         language: {
-            processing:     "Tratamiento en proceso...",
-            search:         "Buscar",
-            lengthMenu:     "Mostrar _MENU_ registros por pagina",
-            info:           "Mostrando del registro _START_ al _END_ de _TOTAL_ registros",
-            infoEmpty:      "0 de 0 registros",
-            infoFiltered:   "(Filtro de _MAX_ registros en total)",
-            infoPostFix:    "",
+            processing: "Tratamiento en proceso...",
+            search: "<i class='fa-solid fa-magnifying-glass'></i> Buscar",
+            lengthMenu: "Mostrar _MENU_ registros por pagina",
+            info: "Mostrando del registro _START_ al _END_ de _TOTAL_ registros",
+            infoEmpty: "0 de 0 registros",
+            infoFiltered: "(Filtro de _MAX_ registros en total)",
+            infoPostFix: "",
             loadingRecords: "Cargando registros...",
-            zeroRecords:    "No hay registros que cargar",
-            emptyTable:     "No hay datos disponibles en la tabla",
+            zeroRecords: "No hay registros que cargar",
+            emptyTable: "No hay datos disponibles en la tabla",
             paginate: {
-                first:      "Primero",
-                previous:   "Previo",
-                next:       "Siguiente",
-                last:       "Ultimo"
+                first: "Primero",
+                previous: "Previo",
+                next: "Siguiente",
+                last: "Ultimo"
             },
             aria: {
-                sortAscending:  ": Activar orden ascendente",
+                sortAscending: ": Activar orden ascendente",
                 sortDescending: ": Activar orden descendente"
             }
         }

@@ -79,7 +79,11 @@ $('.theme-button').click(function () {
   $('.dark-theme').toggleClass('hide');
 
   let darkMode = localStorage.getItem('darkMode');
-  localStorage.setItem('darkMode', darkMode ? false : true);
+  if(darkMode){
+    localStorage.removeItem('darkMode');
+  }else{
+    localStorage.setItem('darkMode', true);
+  }
 });
 
 // * OPEN SIDEBAR WITH RIGHT CLICK

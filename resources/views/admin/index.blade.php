@@ -31,12 +31,12 @@
                 </div>
             </div>
         </div>
-        <div class="charts-container" style="width: 100%; display: flex; justify-content: center; aling-items: center;">
-            <div style="width: 49%;">
+        <div class="charts-container">
+            <div>
                 <h1>{{ $chart_clients->options['chart_title'] }}</h1>
                     {!! $chart_clients->renderHtml() !!}
             </div>
-            <div style="width: 49%;">
+            <div>
                 <h1>{{ $chart_sales->options['chart_title'] }}</h1>
                     {!! $chart_sales->renderHtml() !!}
             </div>
