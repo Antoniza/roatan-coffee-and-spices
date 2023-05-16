@@ -69,6 +69,10 @@ $('.cancel-button').click(function () {
   $('.modal-shadow').removeClass('show');
 });
 
+$('#hide-alert').click(function () {
+  $('.alert').css('display', 'none');
+});
+
 // * DARK MODE HANDLER
 
 $('.theme-button').click(function () {

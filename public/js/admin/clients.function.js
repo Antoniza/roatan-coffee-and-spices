@@ -6,13 +6,13 @@ jQuery(document).ready(function () {
   });
 
   $('#client_phone').inputmask('+(999) 9999-9999');
-  $('#client_dni').inputmask('9999-9999-99999');
+  $('#client_rtn').inputmask('9999-9999-99999-9');
 
   jQuery("#submit-client-button").click(function (e) {
     $('.loading').css('display', 'flex');
     var dataForm = {
       full_name: jQuery("#client_full_name").val(),
-      dni: jQuery("#client_dni").val(),
+      rtn: jQuery("#client_rtn").val(),
       email: jQuery("#client_email").val(),
       phone: jQuery("#client_phone").val()
     };
@@ -27,25 +27,25 @@ jQuery(document).ready(function () {
       method: "post",
       data: dataForm,
       success: function (result) {
-        $('.form-alert').addClass('show');
-        $("#form-alert-message").html(result.message);
 
         jQuery("#client_full_name").val('');
-        jQuery("#client_dni").val('');
+        jQuery("#client_rtn").val('');
         jQuery("#client_email").val('');
         jQuery("#client_phone").val('');
 
-        $('.form-alert').removeClass('show');
         $('#clients-modal').removeClass('show');
         $('.modal-shadow').removeClass('show');
+
+        $('.alert').css('display', 'flex');
+        $(".alert-message").html(result.message);
 
         $('.data-container').load('/dashboard/clients');
 
         $('.loading').css('display', 'none');
       },
     }).fail(function (jqXHR, textStatus, errorThrown) {
-      if (jqXHR.responseJSON.errors.dni) {
-        $("#dni-error").html(jqXHR.responseJSON.errors.dni);
+      if (jqXHR.responseJSON.errors.rtn) {
+        $("#rtn-error").html(jqXHR.responseJSON.errors.rtn);
       }
 
       if (jqXHR.responseJSON.errors.full_name) {
@@ -65,7 +65,7 @@ jQuery(document).ready(function () {
       $('.loading').css('display', 'none');
     });
 
-    $("#dni-error").html("");
+    $("#rtn-error").html("");
     $("#full_name-error").html("");
     $("#email-error").html("");
     $("#phone-error").html("");
@@ -95,5 +95,75 @@ jQuery(document).ready(function () {
 
         });
     }
+  });
+
+  $('.edit-link').click(function (e) {
+    e.preventDefault();
+    $('.loading').css('display', 'flex');
+    $('.data-container').load($(this).attr('href'));
+    $('.loading').css('display', 'none');
+  });
+
+  jQuery("#edit-client-button").click(function (e) {
+    $('.loading').css('display', 'flex');
+    let id = jQuery("#edit-client_id").val();
+    var dataForm = {
+      full_name: jQuery("#edit-client_full_name").val(),
+      rtn: jQuery("#edit-client_rtn").val(),
+      email: jQuery("#edit-client_email").val(),
+      phone: jQuery("#edit-client_phone").val()
+    };
+    e.preventDefault();
+    $.ajaxSetup({
+      headers: {
+        "X-CSRF-TOKEN": $('input[name="_token"]').val(),
+      },
+    });
+    jQuery.ajax({
+      url: "/dashboard/clients/" + id,
+      method: "patch",
+      data: dataForm,
+      success: function (result) {
+
+        jQuery("#edit-client_id").val('');
+        jQuery("#edit-client_full_name").val('');
+        jQuery("#edit-client_rtn").val('');
+        jQuery("#edit-client_email").val('');
+        jQuery("#edit-client_phone").val('');
+
+        $('.alert').css('display', 'flex');
+        $(".alert-message").html(result.message);
+
+        $('.data-container').load('/dashboard/clients');
+
+        $('.loading').css('display', 'none');
+      },
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+      console.log(errorThrown);
+      if (jqXHR.responseJSON.errors.rtn) {
+        $("#edit-rtn-error").html(jqXHR.responseJSON.errors.rtn);
+      }
+
+      if (jqXHR.responseJSON.errors.full_name) {
+        $("#edit-full_name-error").html(jqXHR.responseJSON.errors.full_name);
+      }
+
+      if (jqXHR.responseJSON.errors.email) {
+        console.log(jqXHR.responseJSON.errors.email);
+        $("#edit-email-error").html(jqXHR.responseJSON.errors.email);
+      }
+
+      if (jqXHR.responseJSON.errors.phone) {
+        console.log(jqXHR.responseJSON.errors.phone);
+        $("#edit-phone-error").html(jqXHR.responseJSON.errors.phone);
+      }
+
+      $('.loading').css('display', 'none');
+    });
+
+    $("#edit-rtn-error").html("");
+    $("#edit-full_name-error").html("");
+    $("#edit-email-error").html("");
+    $("#edit-phone-error").html("");
   });
 });

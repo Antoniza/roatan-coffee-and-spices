@@ -55,3 +55,16 @@ header.dark .title span{
   background-color: rgba(0, 0, 0, 0.5);
   text-shadow: 0 0 8px #fff;
 }
+
+.data-container.dark .setting-card {
+  background-color: rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 8px #fff;
+}
+
+.data-container.dark .edit-link{
+  color: #fff;
+}
+
+.data-container.dark .table-container .edit-link{
+  color: #000 !important;
+}

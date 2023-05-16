@@ -1,8 +1,14 @@
 jQuery(document).ready(function () {
+
+  $('#startRange').inputmask('999-999-99-99999999');
+  $('#endRange').inputmask('999-999-99-99999999');
+  $('#rtnCode').inputmask('9999-9999-99999-9');
+  $('#caiCode').inputmask('******-******-******-******-******-**');
+
   jQuery("#saveCaiData").click(function (e) {
     $('.loading').css('display', 'flex');
     var dataForm = {
-      cai: jQuery("#caiCode").val(),
+      cai: jQuery("#caiCode").val().toUpperCase(),
       rtn: jQuery("#rtnCode").val(),
       start_date: jQuery("#startDate").val(),
       end_date: jQuery("#endDate").val(),
@@ -23,9 +29,9 @@ jQuery(document).ready(function () {
         $('.settings-alert').toggleClass('show');
         $("#settings-alert-message").html(result.message);
         $('.loading').css('display', 'none');
-        setTimeout(function() {
-          $('.settings-alert').toggleClass('show');
-        }, 5500);
+        $('.data-container').load('/dashboard/settings');
+        $('.alert').css('display', 'flex');
+        $(".alert-message").html("Factura Configurada exitosamente.");
       },
     });
   });
@@ -54,7 +60,7 @@ jQuery(document).ready(function () {
         $('.settings-alert').addClass('show');
         $("#settings-alert-message").html(result.message);
         $('.loading').css('display', 'none');
-        setTimeout(function() {
+        setTimeout(function () {
           $('.settings-alert').toggleClass('show');
         }, 5200);
       },

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
             $table->string('full_name');
-            $table->string('dni');
+            $table->string('rtn');
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->timestamps();

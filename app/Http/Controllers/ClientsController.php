@@ -15,14 +15,14 @@ class ClientsController extends Controller
     public function store(Request $request){
         $validator = $request->validate([
             'full_name' => 'required',
-            'dni' => 'required|min:14|unique:clients',
+            'rtn' => 'required|min:14|unique:clients',
             'email' => 'required',
             'phone' => 'required',
         ]);
 
         $client = new Client();
         $client -> full_name = $request -> full_name;
-        $client -> dni = $request -> dni;
+        $client -> rtn = $request -> rtn;
         $client -> email = $request -> email;
         $client -> phone = $request -> phone;
         $client -> save();
@@ -35,6 +35,24 @@ class ClientsController extends Controller
         $client->delete();
 
         return response()->json(['message'=>'Cliente eliminado correctamente.']);
+    }
+
+    public function edit($id){
+        $client = Client::find($id);
+
+        return response()->view('admin.edits.client-edit', ['client' => $client]);
+    }
+
+    public function update(Request $request, $id){
+        $client = Client::find($id);
+        $client -> full_name = $request -> full_name;
+        $client -> rtn = $request -> rtn;
+        $client -> email = $request -> email;
+        $client -> phone = $request -> phone;
+
+        $client->save();
+
+        return response()->json(['message'=>'Cliente actualizado correctamente.']);
     }
 
 }

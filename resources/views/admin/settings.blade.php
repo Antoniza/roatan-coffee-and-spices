@@ -45,7 +45,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">RTN</label>
-                            <input type="text" name="rtnCode" id="rtnCode" placeholder="Ingrese el RTN" class="form-control">
+                            <input type="text" name="rtnCode" id="rtnCode" placeholder="Ingrese el RTN" class="form-control" pattern="(8 6)\d{2} \d{2} \d{3}">
                         </div>
                         <div class="form-group-container">
                             <div class="form-group">
@@ -74,9 +74,6 @@
                 @endif
             </div>
         </div>
-    </div>
-    <div class="settings-alert">
-        <h4 id="settings-alert-message">---</h4>
     </div>
 </body>
 <script src="{{asset('js/admin/settings.function.js')}}"></script>

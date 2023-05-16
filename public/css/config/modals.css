@@ -36,35 +36,3 @@
   align-items: center;
   gap: 15px;
 }
-
-.form-alert{
-  position: absolute;
-  right: 15px;
-  bottom: 15px;
-  padding: 20px 15px;
-  border-radius: 15px;
-  color: var(--font-menu-color);
-  background-color: rgb(58, 190, 58);
-  cursor: pointer;
-  user-select: none;
-  transform: translateX(150%);
-}
-
-.form-alert.show{
-  animation: fade-out 5s forwards ease-in-out;
-}
-
-@keyframes fade-out {
-  0%{
-    transform: translateX(150%);
-  }
-  30%{
-    transform: translateX(0);
-  }
-  80%{
-    transform: translateX(0);
-  }
-  100%{
-    transform: translateX(150%);
-  }
-}

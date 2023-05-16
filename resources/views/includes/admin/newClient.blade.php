@@ -13,9 +13,9 @@
                     <center><span id="full_name-error"></span></center>
                 </div>
                 <div class="form-group">
-                    <label for="">Identidad</label>
-                    <input type="text" name="client_dni" id="client_dni" class="form-control">
-                    <center><span id="dni-error"></span></center>
+                    <label for="">RTN</label>
+                    <input type="text" name="client_rtn" id="client_rtn" class="form-control">
+                    <center><span id="rtn-error"></span></center>
                 </div>
                 <div class="form-group">
                     <label for="">Numero Teléfono</label>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Correo Electrónico</label>
-                    <input type="text" name="client_email" id="client_email" class="form-control">
+                    <input type="email" name="client_email" id="client_email" class="form-control">
                     <center><span id="email-error"></span></center>
                 </div>
             </form>

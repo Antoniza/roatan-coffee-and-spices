@@ -34,6 +34,10 @@
     $('#sales-table').DataTable({
         dom: 'Bfrtip',
         buttons: [{
+            extend: 'colvis',
+            text: 'Columnas',
+            columns: ':not(.noVis)'
+        }, {
             extend: 'excel',
             text: '<i class="fa-solid fa-file-excel"></i> Excel',
             exportOptions: {
@@ -46,6 +50,8 @@
             exportOptions: {
                 columns: [0, 1, 2, 3]
             },
+            title: 'Roatán Coffee & Spices - Ventas',
+            footer: 'true',
             customize: function(win) {
                 $(win.document.body).find('h1').remove();
 

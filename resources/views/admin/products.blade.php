@@ -20,11 +20,14 @@
             <tbody>
                 @foreach ($products as $item)
                     <tr>
-                        <tb>{{ $item->id }}</tb>
-                        <tb>{{ $item->name }}</tb>
-                        <tb>{{ $item->quantity }}</tb>
-                        <tb>{{ $item->price }}</tb>
-                        <tb> edit | delete</tb>
+                        <td>{{ $item->id }}</td>
+                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->quantity }}</td>
+                        <td>{{ $item->first_price }}</td>
+                        <td>
+                            <button class="delete deleteProduct" data-id="{{ $item->id }}"
+                                data-token="{{ csrf_token() }}"><i class="fa-solid fa-trash"></i> Borrar </button>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
@@ -37,6 +40,10 @@
     $('#products-table').DataTable({
         dom: 'Bfrtip',
         buttons: [{
+            extend: 'colvis',
+            text: 'Columnas',
+            columns: ':not(.noVis)'
+        }, {
             extend: 'excel',
             text: '<i class="fa-solid fa-file-excel"></i> Excel',
             exportOptions: {
@@ -48,6 +55,7 @@
             exportOptions: {
                 columns: [0, 1, 2]
             },
+            title: 'Roatán Coffee & Spices - Productos',
             customize: function(win) {
                 $(win.document.body).find('h1').remove();
 

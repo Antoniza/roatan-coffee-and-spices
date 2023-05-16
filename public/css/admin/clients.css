@@ -1,3 +1,25 @@
+.header-clients {
+	width: 100% !important;
+	width: 40px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header-clients a button {
+	padding: 15px 10px;
+	border: none;
+	border-radius: 15px;
+	background-color: rgb(71, 153, 71);
+	font-size: 15px;
+	color: var(--font-menu-color);
+	cursor: pointer;
+}
+
+.header-clients button:hover {
+	background-color: rgb(77, 206, 77);
+}
+
 #clients-modal {
   display: none;
   position: absolute;
@@ -29,18 +51,33 @@
   flex-direction: column;
 }
 
-.deleteClient{
-  border: none;
-  padding: 10px 15px;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 8px;
-  color: #ffffff;
-  background-color: rgb(128, 0, 0);
-  cursor: pointer;
-  user-select: none;
+.header-clients .edit-link{
+  font-size: 25px;
+  color: #000;
 }
 
-.deleteClient:hover{
-  background-color: rgb(151, 68, 68);
+.edit-panel{
+  width: 100%;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.edit-panel form{
+  width: 40%;
+  height: auto;
+  box-shadow: #000 0 5px 15px;
+  border-radius: 15px;
+  padding: 2rem;
+}
+
+.edit-panel .edit-footer{
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 15px;
 }

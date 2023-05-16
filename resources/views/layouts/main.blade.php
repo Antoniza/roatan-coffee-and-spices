@@ -23,6 +23,7 @@
     <script src="https://cdn.datatables.net/buttons/1.4.0/js/buttons.flash.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.4.0/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.4.0/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js"></script>
 </head>
 
 <body>
@@ -68,6 +69,20 @@
 
                 <div class="loading">
                     <div class="lds-dual-ring"></div>
+                </div>
+
+                <div class="alert">
+                    <div class="alert-icon">
+                        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                            <circle class="checkmark__circle" cx="26" cy="26" r="55" fill="none" />
+                            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                        </svg>
+                    </div>
+                    <div class="alert-message">
+                        Acción Satisfactoria
+                    </div>
+                    <button id="hide-alert">¡Excelente!
+                    </button>
                 </div>
 
                 <div class="modals">
