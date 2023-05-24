@@ -31,11 +31,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Facturas desde</label>
-                                <input type="text" name="startRange" id="startRange" class="form-control" value="{{ $settings[0]->start_range }}">
+                                <input type="text" name="startRange" id="startRange" class="form-control" value="{{ $settings[0]->invoices_set }}-{{ $settings[0]->start_range }}">
                             </div>
                             <div class="form-group">
                                 <label for="">Facturas hasta</label>
-                                <input type="text" name="endRange" id="endRange" class="form-control" value="{{ $settings[0]->end_range }}">
+                                <input type="text" name="endRange" id="endRange" class="form-control" value="{{ $settings[0]->invoices_set }}-{{ $settings[0]->end_range }}">
                             </div>
                         </div>
                     @else

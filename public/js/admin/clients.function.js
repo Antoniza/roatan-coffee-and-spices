@@ -1,12 +1,17 @@
 jQuery(document).ready(function () {
 
+  let isInClients = false;
+
   $('#newClientButton').click(function () {
     $('#clients-modal').addClass('show');
     $('.modal-shadow').addClass('show');
+    isInClients = true;
   });
 
   $('#client_phone').inputmask('+(999) 9999-9999');
-  $('#client_rtn').inputmask('9999-9999-99999-9');
+
+
+  // * SAVE NEW CLIENT DATA
 
   jQuery("#submit-client-button").click(function (e) {
     $('.loading').css('display', 'flex');
@@ -36,10 +41,16 @@ jQuery(document).ready(function () {
         $('#clients-modal').removeClass('show');
         $('.modal-shadow').removeClass('show');
 
-        $('.alert').css('display', 'flex');
-        $(".alert-message").html(result.message);
+        swal({
+          title: "Exitoso",
+          text: result.message,
+          icon: "success",
+          button: "¡Perfecto!",
+        });
 
-        $('.data-container').load('/dashboard/clients');
+        if(isInClients){
+          $('.data-container').load('/dashboard/clients');
+        }
 
         $('.loading').css('display', 'none');
       },
@@ -71,31 +82,47 @@ jQuery(document).ready(function () {
     $("#phone-error").html("");
   });
 
+  // * DELETE CLIENT DATA
+
   $(".deleteClient").click(function () {
-    let res = confirm('¿Esta seguro de eliminar este elemento?');
+    swal({
+      title: "Eliminando",
+      text: "Se borraran los datos de este cliente. ¿Desea continuar?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+        if (willDelete) {
+          $('.loading').css('display', 'flex');
+          var id = $(this).data("id");
+          var token = $(this).data("token");
+          $.ajax(
+            {
+              url: "dashboard/clients/" + id,
+              type: 'DELETE',
+              dataType: "JSON",
+              data: {
+                "id": id,
+                "_method": 'DELETE',
+                "_token": token,
+              },
+              success: function () {
+                $('.data-container').load('/dashboard/clients');
+                $('.loading').css('display', 'none');
+              },
 
-    if (res) {
-      $('.loading').css('display', 'flex');
-      var id = $(this).data("id");
-      var token = $(this).data("token");
-      $.ajax(
-        {
-          url: "dashboard/clients/" + id,
-          type: 'DELETE',
-          dataType: "JSON",
-          data: {
-            "id": id,
-            "_method": 'DELETE',
-            "_token": token,
-          },
-          success: function () {
-            $('.data-container').load('/dashboard/clients');
-            $('.loading').css('display', 'none');
-          },
-
-        });
-    }
+            });
+          swal("!Se eliminó el cliente correctamente!", {
+            icon: "success",
+          });
+        } else {
+          swal("Acción cancelada.");
+        }
+      });
   });
+
+  // * BUTTON TO OPEN EDIT CLIENT PANEL
 
   $('.edit-link').click(function (e) {
     e.preventDefault();
@@ -103,6 +130,8 @@ jQuery(document).ready(function () {
     $('.data-container').load($(this).attr('href'));
     $('.loading').css('display', 'none');
   });
+
+  // * SAVE EDITED DATA OF CLIENT
 
   jQuery("#edit-client-button").click(function (e) {
     $('.loading').css('display', 'flex');
@@ -131,8 +160,12 @@ jQuery(document).ready(function () {
         jQuery("#edit-client_email").val('');
         jQuery("#edit-client_phone").val('');
 
-        $('.alert').css('display', 'flex');
-        $(".alert-message").html(result.message);
+        swal({
+          title: "Exitoso",
+          text: result.message,
+          icon: "success",
+          button: "¡Perfecto!",
+        });
 
         $('.data-container').load('/dashboard/clients');
 

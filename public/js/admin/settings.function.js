@@ -1,9 +1,13 @@
 jQuery(document).ready(function () {
 
+  // * SETTING INPUT MASK TO DO MORE EASY THE INPUT DATA
+
   $('#startRange').inputmask('999-999-99-99999999');
   $('#endRange').inputmask('999-999-99-99999999');
-  $('#rtnCode').inputmask('9999-9999-99999-9');
+  $('#rtnCode').inputmask('99999999999999');
   $('#caiCode').inputmask('******-******-******-******-******-**');
+
+  // * SAVE DATA OF CAI
 
   jQuery("#saveCaiData").click(function (e) {
     $('.loading').css('display', 'flex');
@@ -26,20 +30,26 @@ jQuery(document).ready(function () {
       method: "post",
       data: dataForm,
       success: function (result) {
-        $('.settings-alert').toggleClass('show');
-        $("#settings-alert-message").html(result.message);
         $('.loading').css('display', 'none');
         $('.data-container').load('/dashboard/settings');
-        $('.alert').css('display', 'flex');
-        $(".alert-message").html("Factura Configurada exitosamente.");
+
+        swal({
+          title: "Exitoso",
+          text: "Factura Configurada exitosamente.",
+          icon: "success",
+          button: "¡Perfecto!",
+        });
       },
     });
   });
+
+  // * SAVE EDITED CAI SETTING
 
   jQuery("#updateCaiData").click(function (e) {
     $('.loading').css('display', 'flex');
     var dataForm = {
       cai: jQuery("#caiCode").val(),
+      rtn: jQuery("#rtnCode").val(),
       start_date: jQuery("#startDate").val(),
       end_date: jQuery("#endDate").val(),
       start_range: jQuery("#startRange").val(),
@@ -57,12 +67,13 @@ jQuery(document).ready(function () {
       method: "post",
       data: dataForm,
       success: function (result) {
-        $('.settings-alert').addClass('show');
-        $("#settings-alert-message").html(result.message);
         $('.loading').css('display', 'none');
-        setTimeout(function () {
-          $('.settings-alert').toggleClass('show');
-        }, 5200);
+        swal({
+          title: "Exitoso",
+          text: "Factura actualizada exitosamente.",
+          icon: "success",
+          button: "¡Perfecto!",
+        });
       },
     });
   });

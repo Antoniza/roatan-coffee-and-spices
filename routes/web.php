@@ -43,13 +43,25 @@ Route::get('/dashboard/start', [StartController::class, 'index'])->name('dashboa
 
 Route::get('/dashboard/sales',[SalesController::class, 'index'])->name('dashboard-sales')->middleware('auth');
 
+Route::get('/dashboard/new-sales',[SalesController::class, 'new'])->name('dashboard-new-sales')->middleware('auth');
+
+Route::post('/dashboard/sales',[SalesController::class, 'store'])->name('dashboard-sales')->middleware('auth');
+
 // * PRODUCTS ROUTES
 
 Route::get('/dashboard/products', [ProductsController::class, 'index'])->name('dashboard-products')->middleware('auth');
 
 Route::post('/dashboard/products', [ProductsController::class, 'store'])->name('dashboard-products-post')->middleware('auth');
 
+Route::post('/dashboard/search-products', [ProductsController::class, 'search'])->name('dashboard-products-search')->middleware('auth');
+
 Route::delete('/dashboard/products/{id}', [ProductsController::class, 'delete'])->name('dashboard-delete-product')->middleware('auth');
+
+Route::get('/dashboard/product-edit/{id}', [ProductsController::class, 'edit'])->name('dashboard-product-edit')->middleware('auth');
+
+Route::patch('/dashboard/products/{id}', [ProductsController::class, 'update'])->name('dashboard-products-update')->middleware('auth');
+
+Route::get('/dashboard/get-product', [ProductsController::class, 'getItem'])->name('dashboard-get-product')->middleware('auth');
 
 // * CLIENTS ROUTES
 
@@ -62,6 +74,8 @@ Route::get('/dashboard/client-edit/{id}', [ClientsController::class, 'edit'])->n
 Route::delete('/dashboard/clients/{id}', [ClientsController::class, 'delete'])->name('dashboard-delete-client')->middleware('auth');
 
 Route::patch('/dashboard/clients/{id}', [ClientsController::class, 'update'])->name('dashboard-clients-update')->middleware('auth');
+
+Route::post('/dashboard/search-clients', [ClientsController::class, 'search'])->name('dashboard-client-search')->middleware('auth');
 
 // * SETTINGS ROUTES
 

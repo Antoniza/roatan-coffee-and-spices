@@ -28,7 +28,7 @@
                         <td>{{ $item->phone }}</td>
                         <td>{{ $item->created_at }}</td>
                         <td>
-                            <button class="deleteClient" data-id="{{ $item->id }}"
+                            <button class="delete deleteClient" data-id="{{ $item->id }}"
                                 data-token="{{ csrf_token() }}"><i class="fa-solid fa-trash"></i> Borrar</button>
                         </td>
                     </tr>

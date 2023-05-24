@@ -55,4 +55,24 @@ class ClientsController extends Controller
         return response()->json(['message'=>'Cliente actualizado correctamente.']);
     }
 
+    public function search(Request $request)
+    {
+
+        $search = $request->search;
+
+        if ($search == '') {
+            $autocomplate = Client::orderby('full_name', 'asc')->select('*')->limit(5)->get();
+        } else {
+            $autocomplate = Client::orderby('full_name', 'asc')->select('*')->where('rtn', 'like', '%' . $search . '%')->orWhere('full_name', 'like', '%' . $search . '%')->limit(5)->get();
+        }
+
+        $response = array();
+        foreach ($autocomplate as $autocomplate) {
+            $response[] = array("value" => $autocomplate->id, "label" => $autocomplate->full_name);
+        }
+
+        echo json_encode($response);
+        exit;
+    }
+
 }

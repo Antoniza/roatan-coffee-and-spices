@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->double('first_price');
             $table->double('second_price')->nullable();
-            $table->integer('quantity');
+            $table->double('quantity');
             $table->integer('discount')->nullable();
             $table->string('type_taxes');
             $table->timestamps();

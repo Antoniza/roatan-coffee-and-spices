@@ -34,6 +34,11 @@
   background-color: lightgreen;
 }
 
+.submit-button:disabled {
+  background-color: rgb(126, 187, 126);
+  cursor: not-allowed;
+}
+
 .cancel-button {
   border: none;
   padding: 15px 25px;
@@ -48,82 +53,6 @@
 
 .cancel-button:hover {
   background-color: rgb(151, 68, 68);
-}
-
-.alert {
-  width: 350px;
-  height: 350px !important;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  height: 100vh;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: #fff;
-  z-index: 35;
-  border-radius: 15px;
-  box-shadow: 0 0 350px #5e5858;
-}
-
-.checkmark__circle {
-  stroke-dasharray: 166;
-  stroke-dashoffset: 166;
-  stroke-width: 2;
-  stroke-miterlimit: 5;
-  stroke: #7ac142;
-  fill: none;
-  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards
-}
-
-.checkmark {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  display: block;
-  stroke-width: 2;
-  stroke: #7ac142;
-  stroke-miterlimit: 5;
-  margin: 10% auto;
-  box-shadow: inset 0px 0px 0px 10px #7ac142;
-  animation: scale 4s infinite ease-in-out;
-}
-
-.alert-message{
-  font-weight: 800;
-}
-
-.alert button{
-  border: none;
-  padding: 10px 15px;
-  font-weight: 600;
-  background-color: #7ac142;
-  color: #ffffff;
-  cursor: pointer;
-}
-
-@keyframes stroke {
-  100% {
-    stroke-dashoffset: 0
-  }
-}
-
-@keyframes scale {
-
-  0%
-  {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
 }
 
 .form-compact{

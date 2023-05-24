@@ -5,13 +5,17 @@
     box-sizing: border-box;
 }
 
-/** START INDEX.BLADE.PHP STYLES **/
+body{
+    background-image: url("../img/coffee_banner.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 
 .container{
     width: 100%;
     height: 100vh;
-
-    padding: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +24,15 @@
 .container .left-content{
     width: 60%;
     height: 100%;
-    background-color: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.container .left-content img{
+    width: 80%;
+    filter: saturate(150%);
 }
 
 .container .right-content{
@@ -29,6 +41,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(15px);
+}
+
+.right-content h2{
+    color: #fff;
+    font-size: 32px;
+    text-decoration: underline;
 }
 
 .right-content form{
@@ -37,6 +57,42 @@
     display: flex;
     flex-direction: column;
     padding: 3.5rem;
+    gap: 10px;
+    background-color: #ffffff10;
+    border-radius: 15px;
 }
 
-/** END INDEX.BLADE.PHP STYLES **/
+.right-content form input{
+    padding: .5rem;
+}
+
+
+.right-content form .form-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.right-content form .form-group label{
+    color: #fff;
+    font-size: large;
+    margin-bottom: .3rem;
+    user-select: none;
+}
+
+.right-content form .form-group label span{
+    margin-left: .5rem;
+}
+
+.right-content form button{
+    padding: .8rem;
+    cursor: pointer;
+    background-color: rgb(73, 43, 19);
+    border: none;
+    color: #fff;
+    font-size: 25px;
+    border-radius: 5px;
+}
+
+.right-content form button:hover{
+    background-color: rgb(97, 53, 17);
+}

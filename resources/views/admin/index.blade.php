@@ -1,6 +1,21 @@
 @extends('layouts.main')
 
 @section('content')
+<div class="information hide">
+    <div class="state-hidden">
+        <i class="fa-solid fa-circle-info"></i>
+    </div>
+    <div class="state-container">
+        <span id="closeStatePanel">
+            <i class="fa-sharp fa-solid fa-circle-xmark"></i>
+        </span>
+        <h1>Estado del Sistema.</h1>
+        <div class="state-card">
+            <h3>Quedan:</h3>
+            <span>25</span> Facturas
+        </div>
+    </div>
+</div>
     <div class="dashboard-container">
         <h1>Información de Hoy</h1>
         <div class="cards-container">
@@ -49,4 +64,5 @@
 
 {!! $chart_sales->renderChartJsLibrary() !!}
 {!! $chart_sales->renderJs() !!}
+<script src="{{asset('js/admin/start.function.js')}}"></script>
 @endsection

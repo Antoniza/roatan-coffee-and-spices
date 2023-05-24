@@ -12,8 +12,10 @@
                 <tr>
                     <th>Id</th>
                     <th>Nombre</th>
-                    <th>Cantidad</th>
+                    <th>Cantidad Inv.</th>
                     <th>Precio</th>
+                    <th>Precio Grabado</th>
+                    <th>Impuestos</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -21,9 +23,11 @@
                 @foreach ($products as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
-                        <td>{{ $item->name }}</td>
+                        <td><a href="/dashboard/product-edit/{{$item->id}}" class="edit-link">{{ $item->name }} <i class="fa-solid fa-pen-to-square"></i></a></td>
                         <td>{{ $item->quantity }}</td>
-                        <td>{{ $item->first_price }}</td>
+                        <td>{{ $item->first_price }} &nbsp; Lps</td>
+                        <td>{{ $item->second_price }} &nbsp; Lps</td>
+                        <td>{{ $item->type_taxes }}</td>
                         <td>
                             <button class="delete deleteProduct" data-id="{{ $item->id }}"
                                 data-token="{{ csrf_token() }}"><i class="fa-solid fa-trash"></i> Borrar </button>
@@ -39,6 +43,12 @@
     var editor;
     $('#products-table').DataTable({
         dom: 'Bfrtip',
+        columnDefs: [{
+                target: 5,
+                visible: false,
+                searchable: 'false'
+            }
+        ],
         buttons: [{
             extend: 'colvis',
             text: 'Columnas',
@@ -53,7 +63,7 @@
             extend: 'print',
             text: '<i class="fa-solid fa-print"></i> Imprimir',
             exportOptions: {
-                columns: [0, 1, 2]
+                columns: ':visible'
             },
             title: 'Roatán Coffee & Spices - Productos',
             customize: function(win) {

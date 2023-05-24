@@ -10,40 +10,44 @@
                 <div class="form-group">
                     <label for="">Nombre del producto</label>
                     <input type="text" name="product_name" id="product_name" class="form-control">
-                    <center><span id="full_name-error"></span></center>
+                    <center><span id="product_name-error"></span></center>
                 </div>
                 <div class="form-compact">
                     <div class="form-group">
-                        <label for="">Primer Precio</label>
-                        <input type="number" name="product_first-price" id="product_first-price" class="form-control" step=".01">
+                        <label for="">Precio</label>
+                        <input type="number" name="product_first-price" id="product_first-price" class="form-control" step=".01" min="0">
                         <center><span id="first_price-error"></span></center>
                     </div>
                     <div class="form-group">
-                        <label for="">Segundo Precio</label>
-                        <input type="number" name="product_second-price" id="product_second-price" class="form-control" step=".01">
+                        <label for="">Precio Grabado</label>
+                        <input type="number" name="product_second-price" id="product_second-price" class="form-control" step=".01" value="0" disabled>
                         <center><span id="second_price-error"></span></center>
                     </div>
                 </div>
                 <div class="form-compact">
                     <div class="form-group">
                         <label for="">Descuento</label>
-                        <input type="number" name="product_discount" id="product_discount" class="form-control" value="0" step=".01">
-                        <center><span id="email-error"></span></center>
+                        <input type="number" name="product_discount" id="product_discount" class="form-control" value="0" step=".01" min="0">
+                        <center><span id="discount-error"></span></center>
                     </div>
                     <div class="form-group">
                         <label for="">Cantidad</label>
-                        <input type="number" name="product_quantity" id="product_quantity" class="form-control" value="1">
-                        <center><span id="email-error"></span></center>
+                        <input type="number" name="product_quantity" id="product_quantity" class="form-control" value="1" min="1">
+                        <center><span id="quantity-error"></span></center>
                     </div>
                 </div>
                 <div class="form-compact">
                     <div class="form-group">
-                        <label for="product_e">Excento</label>
-                        <input type="radio" name="product_type-taxes" id="product_e" checked class="form-control">
+                        <label for="product_e">Exento</label>
+                        <input type="radio" name="product_type-taxes" id="product_e" checked class="taxes_type form-control" value="E">
                     </div>
                     <div class="form-group">
                         <label for="product_g">Grabado</label>
-                        <input type="radio" name="product_type-taxes" id="product_g" class="form-control">
+                        <input type="radio" name="product_type-taxes" id="product_g" class="taxes_type form-control" value="G">
+                    </div>
+                    <div class="form-group">
+                        <label for="product_g">Selectivo</label>
+                        <input type="radio" name="product_type-taxes" id="product_s" class="taxes_type form-control" value="S">
                     </div>
                 </div>
             </form>

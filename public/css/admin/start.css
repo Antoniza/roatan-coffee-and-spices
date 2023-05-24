@@ -75,3 +75,66 @@
 	width: 100% !important;
 	height: 100%;
 }
+
+.information.hide{
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	right: 1rem;
+	bottom: 1rem;
+	background-color: cyan;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #000;
+	font-size: 25px;
+	cursor: pointer;
+	transition: all 0.4s ease-in-out;
+	z-index: 10;
+}
+
+.information.hide .state-container{
+	display: none;
+}
+
+
+.information.show{
+	width: 40%;
+	height: 350px;
+	background-color: cyan;
+	border-radius: 15px;
+	position: absolute;
+	right: 5rem;
+	bottom: 5rem;
+	z-index: 10;
+	color: #000;
+	transition: all 0.4s ease-in-out;
+}
+
+.information.show .state-hidden{
+	display: none;
+}
+
+.information.show .state-container{
+	opacity: 0;
+	animation: showing 0.4s 0.5s forwards ease-out;
+}
+
+@keyframes showing {
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+
+.information.show #closeStatePanel{
+	position: absolute;
+	right: 1rem;
+	top: .5rem;
+	cursor: pointer;
+	font-size: 25px;
+}

@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Roatán Coffee & Spices</title>
 
     {{-- * IMPORTING THE CSS ELEMENTS --}}
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     @include('includes.stylesheets')
 
     {{-- * IMPORTING JQUERY LIBRARY WITH CDN AND FILE FOR ANY CASE OF INTERNET DISCONNECTION --}}
@@ -24,6 +26,8 @@
     <script src="https://cdn.datatables.net/buttons/1.4.0/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.4.0/js/buttons.print.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -71,20 +75,6 @@
                     <div class="lds-dual-ring"></div>
                 </div>
 
-                <div class="alert">
-                    <div class="alert-icon">
-                        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                            <circle class="checkmark__circle" cx="26" cy="26" r="55" fill="none" />
-                            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
-                        </svg>
-                    </div>
-                    <div class="alert-message">
-                        Acción Satisfactoria
-                    </div>
-                    <button id="hide-alert">¡Excelente!
-                    </button>
-                </div>
-
                 <div class="modals">
                     <div class="modal-shadow"></div>
                     @include('includes.admin.newClient')
@@ -106,6 +96,7 @@
                         <div class="profile">
                             <img src="{{ asset('img/profile2.jpg') }}" alt="" />
                             <span>{{ Auth::user()->name }}</span>
+                            <input type="hidden" name="" id="user_id" value="{{ Auth::user()->id }}">
                         </div>
                     </header>
                     {{-- * CREATING THE SPACE WHERE MAIN CONTENT WILL BE --}}

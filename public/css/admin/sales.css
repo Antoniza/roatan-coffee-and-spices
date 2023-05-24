@@ -27,3 +27,180 @@
 .table-container h1 {
 	margin-bottom: 10px;
 }
+
+.newSale-container{
+	width: 100%;
+	height: 100%;
+	display: flex;
+}
+
+.control-content{
+	width: 80%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.345);
+	position: relative;
+}
+
+.control-content .control-header{
+	width: 100%;
+	padding: .5rem;
+	display: flex;
+}
+
+.control-content .control-header .form-group:nth-of-type(1){
+	width: 79%;
+}
+
+.control-content .control-header .form-group:nth-of-type(2){
+	width: 19%;
+}
+
+.control-content .control-header .form-group input{
+	padding: .5rem;
+}
+
+.footer-sale{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 10%;
+	background-color: rgba(0, 0, 0, 0.345);
+	display: flex;
+	justify-content: stretch;
+	align-items: center;
+}
+
+.footer-sale div{
+	padding: 1rem 1.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	text-align: center;
+	transform: scale(0.8);
+	width: 100%;
+}
+
+.sale-table{
+	width: 100%;
+	height: 70%;
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+.sale-table table th{
+	padding: .5rem;
+	background-color: rgba(255, 255, 255, 0.226);
+}
+
+.sale-table table td:nth-of-type(1),
+.sale-table table td:nth-of-type(3){
+	text-align: center;
+}
+
+.sale-table table td:nth-of-type(5){
+	text-align: end;
+}
+
+.sale-table table td{
+	padding: 1rem .3rem;
+	background-color: rgba(255, 255, 255, 0.112);
+}
+
+.actions-container{
+	width: 20%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.658);
+	padding: .5rem;
+	position: relative;
+}
+
+.buttons-section{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 40%;
+	padding: .5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.buttons-section button{
+	width: 80%;
+	padding: 1rem;
+}
+
+.form-client{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+
+	width: 70%;
+	height: max-content;
+	z-index: 12;
+	padding: 1rem;
+
+	background-color: var(--secondary-color);
+	border-radius: 15px;
+	border: 3px solid #000;
+}
+
+.form-client input{
+	width: 100%;
+	padding: .5rem;
+	margin-bottom: 1rem;
+}
+
+.form-client .form-client-bottom{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	padding: 1.5rem;
+}
+
+.form-payment{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+
+	width: 70%;
+	height: max-content;
+	z-index: 12;
+	padding: 1rem;
+
+	background-color: var(--secondary-color);
+	border-radius: 15px;
+	border: 3px solid #000;
+}
+
+.form-payment input{
+	width: 100%;
+	padding: .5rem;
+	margin-bottom: 1rem;
+}
+
+.form-payment .form-client-bottom{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	padding: 1.5rem;
+}

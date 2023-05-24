@@ -1,7 +1,7 @@
 <body>
     <div class="header-sales">
         <h1>Sección de Ventas</h1>
-        <a href="#"><button> <span><i class="fa-solid fa-cart-plus"></i></span> Nueva Venta</button></a>
+        <a href="{{route('dashboard-new-sales')}}" id="new-sale"><button> <span><i class="fa-solid fa-cart-plus"></i></span> Nueva Venta</button></a>
     </div>
 
     <div class="table-container">
@@ -20,15 +20,17 @@
                 @foreach ($sales as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
-                        <td>{{ $item->id_client }}</td>
-                        <td>{{ $item->id_invoice }}</td>
+                        <td>{{ $item->full_name }}</td>
+                        <td>{{ $item->invoice_number }}</td>
                         <td>{{ $item->created_at }}</td>
+                        <td>Reimprimir</td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
 </body>
+<script src="{{ asset('js/admin/sales.function.js') }}"></script>
 <script>
     var editor;
     $('#sales-table').DataTable({
