@@ -51,11 +51,6 @@
   flex-direction: column;
 }
 
-.header-clients .edit-link{
-  font-size: 25px;
-  color: #000;
-}
-
 .edit-panel{
   width: 100%;
   height: max-content;

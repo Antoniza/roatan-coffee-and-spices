@@ -162,3 +162,19 @@ body {
 .delete:hover{
   background-color: rgb(151, 68, 68);
 }
+
+.data-container .table-container .dataTables_wrapper{
+  background-color: #88888830;
+  border-radius: 15px;
+}
+
+.header-clients .edit-link,
+.header-products .edit-link{
+  font-size: 25px;
+  color: #000;
+}
+
+@media print {
+  @page { margin: 0; }
+  body { margin: 1.5cm; }
+}

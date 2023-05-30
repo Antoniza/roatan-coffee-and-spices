@@ -10,6 +10,6 @@ $('.state-hidden').on('click', function(){
 
 $(document).bind('keydown', 'shift+i', function (e) {
     e.preventDefault();
-    $(".information").removeClass('hide');
-    $(".information").addClass('show');
+    $(".information").toggleClass('hide');
+    $(".information").toggleClass('show');
   });

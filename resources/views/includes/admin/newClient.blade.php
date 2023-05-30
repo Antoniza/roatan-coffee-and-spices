@@ -35,3 +35,4 @@
         </div>
     </div>
 </div>
+<script src="{{ asset('js/admin/clients.function.js') }}"></script>

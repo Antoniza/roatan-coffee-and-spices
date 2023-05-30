@@ -102,9 +102,27 @@ $(document).on("contextmenu", "body", function (e) {
 
 $(document).bind('keydown', 'F1', function (e) {
   e.preventDefault();
+  $('.data-container').load('/dashboard/new-sales');
+  $('.sideBar').addClass('changeMenuSize');
+  $('.menu-item').addClass('hideMenuList');
+});
+
+$(document).bind('keydown', 'F2', function (e) {
+  e.preventDefault();
+  $('.data-container').load('/dashboard/products');
+  $('.sideBar').addClass('changeMenuSize');
+  $('.menu-item').addClass('hideMenuList');
+});
+
+$(document).bind('keydown', 'F3', function (e) {
+  e.preventDefault();
   $('.data-container').load('/dashboard/clients');
+  $('.sideBar').addClass('changeMenuSize');
+  $('.menu-item').addClass('hideMenuList');
 });
 
 $(document).bind('keydown', 'esc', function () {
-  $('.data-container').load($(location).attr('href', 'dashboard'));
+  $('.data-container').load('/dashboard');
+  $('.sideBar').addClass('changeMenuSize');
+  $('.menu-item').addClass('hideMenuList');
 });

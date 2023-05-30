@@ -2,10 +2,13 @@
   width: 100%;
   display: flex;
   margin-top: 15px;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .setting-card {
-  max-width: 640px;
+  max-width: 580px;
+  min-width: 380px;
   height: max-content;
   display: flex;
   justify-content: flex-start;
@@ -14,6 +17,7 @@
   background-color: #fff;
   border-radius: 15px;
   overflow: hidden;
+  box-shadow: 0px 0px 15px #000;
 }
 
 .setting-card-header {
@@ -72,7 +76,8 @@
   padding: 5px;
 }
 
-.saveCaiData {
+.saveCaiData,
+.saveDolarChange {
   width: 100%;
   margin-top: 10px;
   padding: 15px 10px;
@@ -84,11 +89,14 @@
   cursor: pointer;
 }
 
-.saveCaiData:hover {
+.saveCaiData:hover,
+.saveDolarChange:hover {
   background-color: rgb(77, 206, 77);
 }
 
-.updateCaiData {
+.updateCaiData,
+.updateDolarChange,
+.updateInvoiceHeader {
   width: 100%;
   margin-top: 10px;
   padding: 15px 10px;
@@ -100,6 +108,8 @@
   cursor: pointer;
 }
 
-.updateCaiData:hover {
+.updateCaiData:hover,
+.updateDolarChange:hover,
+.updateInvoiceHeader {
   background-color: rgb(77, 86, 206);
 }

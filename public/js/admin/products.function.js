@@ -210,8 +210,12 @@ jQuery("#edit-product-button").click(function (e) {
                 jQuery("#edit-client_email").val("");
                 jQuery("#edit-client_phone").val("");
 
-                $(".alert").css("display", "flex");
-                $(".alert-message").html(result.message);
+                swal({
+                    title: "Exitoso",
+                    text: result.message,
+                    icon: "success",
+                    button: "¡Perfecto!",
+                  });
 
                 $(".data-container").load("/dashboard/products");
 

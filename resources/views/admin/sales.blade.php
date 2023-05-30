@@ -1,7 +1,23 @@
 <body>
+
+    <div class="invoice_preview_back">
+        <div class="printing">
+            <button class="submit-button" id="reprint_button">Imprimir</button>
+            <button class="cancel-button" id="cancel-reprint">Cancelar</button>
+        </div>
+    </div>
+    <div class="invoice">
+        <div class="invoice_preview" id="invoice">
+            <div class="loading" style="display: flex">
+                <div class="lds-dual-ring"></div>
+            </div>
+        </div>
+    </div>
+
     <div class="header-sales">
         <h1>Sección de Ventas</h1>
-        <a href="{{route('dashboard-new-sales')}}" id="new-sale"><button> <span><i class="fa-solid fa-cart-plus"></i></span> Nueva Venta</button></a>
+        <a href="{{ route('dashboard-new-sales') }}" id="new-sale"><button> <span><i
+                        class="fa-solid fa-cart-plus"></i></span> Nueva Venta</button></a>
     </div>
 
     <div class="table-container">
@@ -22,8 +38,10 @@
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->full_name }}</td>
                         <td>{{ $item->invoice_number }}</td>
-                        <td>{{ $item->created_at }}</td>
-                        <td>Reimprimir</td>
+                        <td>{{ $item->shopping_date }}</td>
+                        <td><a href="/dashboard/get-invoice/{{ $item->id }}" class="load_invoice">
+                            <button><i class="fa-solid fa-print"></i> Reimprimir</button></a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
@@ -32,8 +50,10 @@
 </body>
 <script src="{{ asset('js/admin/sales.function.js') }}"></script>
 <script>
+    var today = new Date();
     var editor;
     $('#sales-table').DataTable({
+        order: [[ 0, "desc" ]],
         dom: 'Bfrtip',
         buttons: [{
             extend: 'colvis',
@@ -65,8 +85,15 @@
                                 <div style="width: 40%; height: 100%">
                                     <img src="{{ asset('img/RoatancoffeeSpices.png') }}" style="width: 80%" />
                                 </div>
+
                                 <div style="width: 60%; margin-top: 5%;">
                                     <h2>Lista de Ventas</h2>
+                                </div>
+
+                                <div style="width: 30%; margin-top: -5%;">
+                                    <h6>Impreso el ` + today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today
+                        .getDate() + ' || ' + today.getHours() + ":" + today.getMinutes() + ":" +
+                        today.getSeconds() + `</h6>
                                 </div>
                             </div>
 

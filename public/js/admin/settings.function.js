@@ -7,6 +7,8 @@ jQuery(document).ready(function () {
   $('#rtnCode').inputmask('99999999999999');
   $('#caiCode').inputmask('******-******-******-******-******-**');
 
+  $('#invoice_phone').inputmask('+(999) 9999-9999');
+
   // * SAVE DATA OF CAI
 
   jQuery("#saveCaiData").click(function (e) {
@@ -35,7 +37,7 @@ jQuery(document).ready(function () {
 
         swal({
           title: "Exitoso",
-          text: "Factura Configurada exitosamente.",
+          text: "Factura configurada exitosamente.",
           icon: "success",
           button: "¡Perfecto!",
         });
@@ -43,7 +45,7 @@ jQuery(document).ready(function () {
     });
   });
 
-  // * SAVE EDITED CAI SETTING
+  // * UPDATE CAI SETTING
 
   jQuery("#updateCaiData").click(function (e) {
     $('.loading').css('display', 'flex');
@@ -64,13 +66,77 @@ jQuery(document).ready(function () {
     let urlUpdate = "/dashboard/settings/" + jQuery("#id").val();
     jQuery.ajax({
       url: urlUpdate,
-      method: "post",
+      method: "patch",
       data: dataForm,
       success: function (result) {
         $('.loading').css('display', 'none');
         swal({
           title: "Exitoso",
           text: "Factura actualizada exitosamente.",
+          icon: "success",
+          button: "¡Perfecto!",
+        });
+      },
+    });
+  });
+
+  // * UPDATE DOLAR CHANGE
+
+  jQuery("#updateDolarChange").click(function (e) {
+    $('.loading').css('display', 'flex');
+    var dataForm = {
+      dolar_change: jQuery("#dolar_change").val()
+    };
+    e.preventDefault();
+    $.ajaxSetup({
+      headers: {
+        "X-CSRF-TOKEN": $('input[name="_token"]').val(),
+      },
+    });
+    let urlUpdate = "/dashboard/settings-dolar/" + jQuery("#id").val();
+    jQuery.ajax({
+      url: urlUpdate,
+      method: "patch",
+      data: dataForm,
+      success: function (result) {
+        $('.loading').css('display', 'none');
+        swal({
+          title: "Exitoso",
+          text: "Taza de cambio actualizada exitosamente.",
+          icon: "success",
+          button: "¡Perfecto!",
+        });
+      },
+    });
+  });
+
+  // * UPDATE INVOICE HEADER
+
+  jQuery("#updateInvoiceHeader").click(function (e) {
+    $('.loading').css('display', 'flex');
+    var dataForm = {
+      invoice_header: {
+        invoice_location: jQuery("#invoice_location").val(),
+        invoice_phone: jQuery("#invoice_phone").val(),
+        invoice_email: jQuery("#invoice_email").val()
+      }
+    };
+    e.preventDefault();
+    $.ajaxSetup({
+      headers: {
+        "X-CSRF-TOKEN": $('input[name="_token"]').val(),
+      },
+    });
+    let urlUpdate = "/dashboard/settings-invoice_header/" + jQuery("#id").val();
+    jQuery.ajax({
+      url: urlUpdate,
+      method: "patch",
+      data: dataForm,
+      success: function (result) {
+        $('.loading').css('display', 'none');
+        swal({
+          title: "Exitoso",
+          text: "Encabezado de factura actualizada exitosamente.",
           icon: "success",
           button: "¡Perfecto!",
         });

@@ -68,3 +68,26 @@ header.dark .title span{
 .data-container.dark .table-container .edit-link{
   color: #000 !important;
 }
+
+.data-container.dark .form-client,
+.data-container.dark .form-payment,
+.data-container.dark .footer-sale{
+  background-color: rgba(0, 0, 0, 0.345);
+}
+
+.data-container.dark .sale-table table td{
+  background-color: rgba(255, 255, 255, 0.112);
+}
+
+.data-container.dark .control-content{
+  background-color: rgba(0, 0, 0, 0.345);
+}
+
+.data-container.dark .actions-container{
+  background-color: rgba(0, 0, 0, 0.658);
+}
+
+.data-container.dark .form-client,
+.data-container.dark .form-payment{
+  background-color: var(--secondary-color);
+}

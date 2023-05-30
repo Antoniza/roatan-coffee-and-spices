@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Invoice;
+use App\Models\InvoiceSetting;
+use App\Models\Sale;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 
 class StartController extends Controller
@@ -34,6 +39,18 @@ class StartController extends Controller
         ];
         $chart_sales = new LaravelChart($chart_options_sales);
 
-        return response()->view('admin.start', compact('chart_clients', 'chart_sales'));
+        $todayData = DB::table('invoices')
+        ->selectRaw('count(*) as sales, sum(total) as total')
+        ->whereDate('created_at', Carbon::today())
+        ->get();
+
+        $invoice_setting = InvoiceSetting::all();
+
+        $storageControl = DB::table('products')
+        ->select('*')
+        ->where('quantity', '<=', 5)
+        ->get();
+
+        return response()->view('admin.start', compact('chart_clients', 'chart_sales', 'todayData', 'invoice_setting', 'storageControl'));
     }
 }

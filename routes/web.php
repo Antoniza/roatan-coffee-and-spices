@@ -47,6 +47,10 @@ Route::get('/dashboard/new-sales',[SalesController::class, 'new'])->name('dashbo
 
 Route::post('/dashboard/sales',[SalesController::class, 'store'])->name('dashboard-sales')->middleware('auth');
 
+Route::get('/dashboard/get-invoice/{id}',[SalesController::class, 'invoice'])->name('dashboard-sales-invoice')->middleware('auth');
+
+Route::get('/dashboard/print-invoice',[SalesController::class, 'printInvoice'])->name('dashboard-print-invoice')->middleware('auth');
+
 // * PRODUCTS ROUTES
 
 Route::get('/dashboard/products', [ProductsController::class, 'index'])->name('dashboard-products')->middleware('auth');
@@ -83,4 +87,8 @@ Route::get('/dashboard/settings', [SettingsController::class, 'index'])->name('d
 
 Route::post('/dashboard/settings', [SettingsController::class, 'store'])->name('dashboard-settings-post')->middleware('auth');
 
-Route::post('/dashboard/settings/{id}', [SettingsController::class, 'update'])->name('dashboard-settings-update')->middleware('auth');
+Route::patch('/dashboard/settings/{id}', [SettingsController::class, 'update'])->name('dashboard-settings-update')->middleware('auth');
+
+Route::patch('/dashboard/settings-dolar/{id}', [SettingsController::class, 'updateDolar'])->name('dashboard-settings-updateDolar')->middleware('auth');
+
+Route::patch('/dashboard/settings-invoice_header/{id}', [SettingsController::class, 'updateInvoice'])->name('dashboard-settings-updateInvoice')->middleware('auth');

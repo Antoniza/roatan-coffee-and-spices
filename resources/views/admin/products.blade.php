@@ -27,7 +27,7 @@
                         <td>{{ $item->quantity }}</td>
                         <td>{{ $item->first_price }} &nbsp; Lps</td>
                         <td>{{ $item->second_price }} &nbsp; Lps</td>
-                        <td>{{ $item->type_taxes }}</td>
+                        <td>@if($item->type_taxes == 'E')Exento @else Grabado @endif</td>
                         <td>
                             <button class="delete deleteProduct" data-id="{{ $item->id }}"
                                 data-token="{{ csrf_token() }}"><i class="fa-solid fa-trash"></i> Borrar </button>
@@ -40,6 +40,7 @@
 </body>
 <script src="{{ asset('js/admin/products.function.js') }}"></script>
 <script>
+    var today = new Date();
     var editor;
     $('#products-table').DataTable({
         dom: 'Bfrtip',
@@ -77,8 +78,13 @@
                                 <div style="width: 40%; height: 100%">
                                     <img src="{{ asset('img/RoatancoffeeSpices.png') }}" style="width: 80%" />
                                 </div>
+
                                 <div style="width: 60%; margin-top: 5%;">
                                     <h2>Lista de Productos</h2>
+                                </div>
+
+                                <div style="width: 30%; margin-top: -5%;">
+                                    <h6>Impreso el ` + today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate() + ' || ' + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + `</h6>
                                 </div>
                             </div>
 

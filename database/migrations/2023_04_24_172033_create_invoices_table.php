@@ -27,6 +27,8 @@ return new class extends Migration
             $table->double('sub_isv');
             $table->double('isv');
             $table->double('total');
+            $table->double('change_money');
+            $table->double('dolar_change')->nullable();
             $table->string('words');
             $table->foreign('id_client')->references('id')->on('clients');
             $table->foreign('id_user')->references('id')->on('users');

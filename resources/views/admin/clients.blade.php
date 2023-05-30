@@ -39,6 +39,7 @@
 </body>
 <script src="{{ asset('js/admin/clients.function.js') }}"></script>
 <script>
+    var today = new Date();
     $('#clients-table').DataTable({
         dom: 'Bfrtip',
         columnDefs: [{
@@ -80,8 +81,13 @@
                                 <div style="width: 40%; height: 100%">
                                     <img src="{{ asset('img/RoatancoffeeSpices.png') }}" style="width: 80%" />
                                 </div>
+
                                 <div style="width: 60%; margin-top: 5%;">
                                     <h2>Lista de Clientes</h2>
+                                </div>
+
+                                <div style="width: 30%; margin-top: -5%;">
+                                    <h6>Impreso el ` + today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate() + ' || ' + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + `</h6>
                                 </div>
                             </div>
 

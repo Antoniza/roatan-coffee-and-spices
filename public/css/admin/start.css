@@ -49,8 +49,10 @@
 }
 
 .dashboard-container .card .card-body h5 {
-	font-size: 58px;
+	font-size: 48px;
 	font-weight: 800;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .dashboard-container .card .card-body h5 span{
@@ -60,6 +62,7 @@
 
 .charts-container {
 	width: 100% !important;
+  height: max-content;
 	display: flex;
 	justify-content: center;
 	padding: .5rem;
@@ -68,7 +71,7 @@
 
 .charts-container div{
 	width: 50%;
-	height: 350px;
+	height: auto;
 }
 
 .charts-container div canvas{
@@ -83,34 +86,37 @@
 	position: absolute;
 	right: 1rem;
 	bottom: 1rem;
-	background-color: cyan;
+	background-color: var(--hover-menu-color);
 	overflow: hidden;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: #000;
+	color: #fff;
 	font-size: 25px;
 	cursor: pointer;
 	transition: all 0.4s ease-in-out;
 	z-index: 10;
+	border: #fff 3px solid;
 }
 
 .information.hide .state-container{
 	display: none;
 }
 
-
 .information.show{
 	width: 40%;
 	height: 350px;
-	background-color: cyan;
+	background-color: var(--hover-menu-color);
 	border-radius: 15px;
 	position: absolute;
 	right: 5rem;
 	bottom: 5rem;
 	z-index: 10;
-	color: #000;
+	color: #fff;
 	transition: all 0.4s ease-in-out;
+	border: #fff 3px solid;
+	padding: 1rem;
+	overflow-y: auto;
 }
 
 .information.show .state-hidden{
