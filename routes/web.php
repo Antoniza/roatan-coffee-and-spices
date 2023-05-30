@@ -20,12 +20,6 @@ Route::get('/', function () {
 
 Route::post('/', [LoginController::class, 'login'])->name('post-login');
 
-Route::get('/register', function () {
-    return view('register');
-});
-
-Route::post('/register', [RegisterController::class, 'store'])->name('register-user');
-
 Route::get('/logout', function(){
     Session::flush();
     Auth::logout();
@@ -92,3 +86,7 @@ Route::patch('/dashboard/settings/{id}', [SettingsController::class, 'update'])-
 Route::patch('/dashboard/settings-dolar/{id}', [SettingsController::class, 'updateDolar'])->name('dashboard-settings-updateDolar')->middleware('auth');
 
 Route::patch('/dashboard/settings-invoice_header/{id}', [SettingsController::class, 'updateInvoice'])->name('dashboard-settings-updateInvoice')->middleware('auth');
+
+Route::fallback(function() {
+    return view('errors/404');
+});
