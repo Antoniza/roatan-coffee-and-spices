@@ -1,4 +1,12 @@
 jQuery(document).ready(function () {
+  var todaysDate = new Date();
+  var year = todaysDate.getFullYear();
+  var month = ("0" + (todaysDate.getMonth() + 1)).slice(-2);
+  var day = ("0" + todaysDate.getDate()).slice(-2);
+
+  var minDate = (year + "-" + month + "-" + day);
+  $('#startDate').attr('min', minDate);
+  $('#endDate').attr('min', minDate);
 
   // * SETTING INPUT MASK TO DO MORE EASY THE INPUT DATA
 
