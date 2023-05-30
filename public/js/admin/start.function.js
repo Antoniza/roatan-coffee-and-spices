@@ -1,15 +1,15 @@
-$('#closeStatePanel').on('click', function(){
-    $(".information").removeClass('show');
-    $(".information").addClass('hide');
+$('#closeStatePanel').on('click', function () {
+  $(".information").removeClass('show');
+  $(".information").addClass('hide');
 })
 
-$('.state-hidden').on('click', function(){
-    $(".information").removeClass('hide');
-    $(".information").addClass('show');
+$('.state-hidden').on('click', function () {
+  $(".information").removeClass('hide');
+  $(".information").addClass('show');
 })
 
 $(document).bind('keydown', 'shift+i', function (e) {
-    e.preventDefault();
-    $(".information").toggleClass('hide');
-    $(".information").toggleClass('show');
-  });
+  e.preventDefault();
+  $(".information").toggleClass('hide');
+  $(".information").toggleClass('show');
+});

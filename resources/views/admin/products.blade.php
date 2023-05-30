@@ -23,11 +23,18 @@
                 @foreach ($products as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
-                        <td><a href="/dashboard/product-edit/{{$item->id}}" class="edit-link">{{ $item->name }} <i class="fa-solid fa-pen-to-square"></i></a></td>
+                        <td><a href="/dashboard/product-edit/{{ $item->id }}" class="edit-link">{{ $item->name }} <i
+                                    class="fa-solid fa-pen-to-square"></i></a></td>
                         <td>{{ $item->quantity }}</td>
                         <td>{{ $item->first_price }} &nbsp; Lps</td>
                         <td>{{ $item->second_price }} &nbsp; Lps</td>
-                        <td>@if($item->type_taxes == 'E')Exento @else Grabado @endif</td>
+                        <td>
+                            @if ($item->type_taxes == 'E')
+                                Exento
+                            @else
+                                Grabado
+                            @endif
+                        </td>
                         <td>
                             <button class="delete deleteProduct" data-id="{{ $item->id }}"
                                 data-token="{{ csrf_token() }}"><i class="fa-solid fa-trash"></i> Borrar </button>
@@ -45,11 +52,10 @@
     $('#products-table').DataTable({
         dom: 'Bfrtip',
         columnDefs: [{
-                target: 5,
-                visible: false,
-                searchable: 'false'
-            }
-        ],
+            target: 5,
+            visible: false,
+            searchable: 'false'
+        }],
         buttons: [{
             extend: 'colvis',
             text: 'Columnas',
@@ -84,7 +90,9 @@
                                 </div>
 
                                 <div style="width: 30%; margin-top: -5%;">
-                                    <h6>Impreso el ` + today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate() + ' || ' + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + `</h6>
+                                    <h6>Impreso el ` + today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today
+                        .getDate() + ' || ' + today.getHours() + ":" + today.getMinutes() + ":" +
+                        today.getSeconds() + `</h6>
                                 </div>
                             </div>
 

@@ -7,17 +7,20 @@ $('.load_invoice').click(function (e) {
   $(".invoice_preview").load($(this).attr("href"));
   $('.invoice_preview_back').css('display', 'block');
   $('.loading').css('display', 'none');
+  document.title = "Roatán Coffee & Spices - " + $(this).data('invoice');
 });
 
 $('.invoice_preview_back').click(function () {
   $('.invoice_preview').css('display', 'none');
   $('.invoice_preview_back').css('display', 'none');
+  document.title = "Roatán Coffee & Spices";
 });
 
 $('#cancel-reprint').click(function () {
   $('.invoice_preview').css('display', 'none');
   $('.invoice_preview_back').css('display', 'none');
   $(".data-container").load('/dashboard/sales');
+  document.title = "Roatán Coffee & Spices";
 });
 
 // * REPRINT BUTTON
@@ -35,6 +38,7 @@ $('#reprint_button').click(function () {
 
   $('#invoice').css('display', 'none');
   $('.invoice_preview_back').css('display', 'none');
+  document.title = "Roatán Coffee & Spices";
 
   let darkMode = localStorage.getItem('darkMode');
   if (darkMode) {
@@ -375,11 +379,12 @@ $(document).ready(function () {
   $('#finish_sale').click(function () {
     if ($("input[name=pay_way]:checked").val() == "Dolares" && parseFloat(jQuery("#payment").val()) != 0 && (parseFloat(jQuery("#dolar_change").val()) * parseFloat(jQuery("#payment").val())) >= parseFloat($('#total').html())) {
       var today = new Date();
+      var currentTime = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ' + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
       var dataForm = {
         id_client: parseInt($("#client_id").val()) > 0 ? parseInt($("#client_id").val()) : 0,
         invoice_number: jQuery("#invoice_number").html(),
         shopping_details: details,
-        shopping_date: today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ' + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
+        shopping_date: currentTime,
         id_user: parseInt(jQuery("#user_id").val()),
         id_invoice_setting: parseInt(jQuery("#invoice_setting").val()),
         elements: parseInt($('#countElements').html()),
@@ -423,6 +428,7 @@ $(document).ready(function () {
             });
           }
 
+          document.title = "Roatán Coffee & Spices - " + jQuery("#invoice_number").html() + '- (' + currentTime + ')';
           $('.form-payment').css('display', 'none');
           $('.invoice_preview').css('display', 'flex');
           $(".invoice_preview").load('/dashboard/print-invoice');

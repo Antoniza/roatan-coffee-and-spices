@@ -13,29 +13,34 @@ use Illuminate\Support\Facades\DB;
 
 class SalesController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $sales = DB::table('sales')
-            ->select('sales.id','clients.full_name', 'invoices.invoice_number', 'invoices.shopping_date', 'sales.created_at')
+            ->select('sales.id', 'clients.full_name', 'invoices.invoice_number', 'invoices.shopping_date', 'sales.created_at')
             ->join('clients', 'clients.id', '=', 'sales.id_client')
             ->join('invoices', 'invoices.id', '=', 'sales.id_invoice')
             ->get();
-        return response()->view('admin.sales', ['sales' => $sales]);
+
+        $invoice_settings = InvoiceSetting::all();
+        return response()->view('admin.sales', ['sales' => $sales, 'invoice_settings' => $invoice_settings]);
     }
 
-    public function new(){
+    public function new()
+    {
         $products = Product::all();
         $clients = Client::all();
         $invoice_settings = InvoiceSetting::all();
         return response()->view('admin.newSale', ['products' => $products, 'clients' => $clients, 'invoice_settings' => $invoice_settings]);
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
         $invoice = new Invoice();
-        if($request->id_client == 0){
+        if ($request->id_client == 0) {
             $client = Client::all()->first();
             $invoice->id_client = $client->id;
-        }else{
+        } else {
             $invoice->id_client = $request->id_client;
         }
         $invoice->invoice_number = $request->invoice_number;
@@ -63,22 +68,23 @@ class SalesController extends Controller
 
         $sale = new Sale();
         $last_sale = Invoice::all()->last();
-        if($request->id_client == 0){
+        if ($request->id_client == 0) {
             $sale->id_client =  $client->id;
-        }else{
+        } else {
             $sale->id_client =  $request->id_client;
         }
         $sale->id_invoice = $last_sale->id;
         $sale->save();
 
-        for ($i=0; $i < count($request->shopping_details); $i++) {
+        for ($i = 0; $i < count($request->shopping_details); $i++) {
             $item = Product::find($request->shopping_details[$i]['id']);
             $item->quantity = $item->quantity - $request->shopping_details[$i]['quantity'];
             $item->save();
         }
     }
 
-    public function invoice($id){
+    public function invoice($id)
+    {
 
         $sale = Sale::find($id);
 
@@ -93,10 +99,11 @@ class SalesController extends Controller
         $invoice_setting = InvoiceSetting::find($invoice->id_invoice_setting);
 
         $invoice_header = json_decode($invoice_setting['invoice_header']);
-        return response()->view('admin.invoice.invoice', ['invoice_setting'=>$invoice_setting, 'sale'=>$sale, 'user'=>$user, 'client'=>$client, 'invoice'=>$invoice, 'shopping_details'=>$shopping_details, 'invoice_header'=>$invoice_header]);
+        return response()->view('admin.invoice.invoice', ['invoice_setting' => $invoice_setting, 'sale' => $sale, 'user' => $user, 'client' => $client, 'invoice' => $invoice, 'shopping_details' => $shopping_details, 'invoice_header' => $invoice_header]);
     }
 
-    public function printInvoice(){
+    public function printInvoice()
+    {
 
         $sale = Sale::all()->last();
 
@@ -109,8 +116,8 @@ class SalesController extends Controller
         $user = User::find($invoice->id_user);
 
         $invoice_setting = InvoiceSetting::find($invoice->id_invoice_setting);
-        
+
         $invoice_header = json_decode($invoice_setting['invoice_header']);
-        return response()->view('admin.invoice.invoice', ['invoice_setting'=>$invoice_setting, 'sale'=>$sale, 'user'=>$user, 'client'=>$client, 'invoice'=>$invoice, 'shopping_details'=>$shopping_details, 'invoice_header'=>$invoice_header]);
+        return response()->view('admin.invoice.invoice', ['invoice_setting' => $invoice_setting, 'sale' => $sale, 'user' => $user, 'client' => $client, 'invoice' => $invoice, 'shopping_details' => $shopping_details, 'invoice_header' => $invoice_header]);
     }
 }

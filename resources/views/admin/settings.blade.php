@@ -84,7 +84,73 @@
         </div>
 
         @if (count($settings) > 0)
-        <input type="hidden" id="id" value="{{ $settings[0]->id }}">
+
+            @if ($invoice_header != null)
+                <div class="setting-card">
+                    <div class="setting-card-header">
+                        <h3>Información de factura</h3>
+                    </div>
+                    <div class="setting-card-body">
+                        <form method="post">
+                            @csrf
+                            <input type="hidden" id="id" value="{{ $settings[0]->id }}">
+                            <div class="form-group">
+                                <label for="">Ubicación</label>
+                                <input type="text" name="invoice_location" id="invoice_location"
+                                    placeholder="Ingrese la ubicación de la empresa" class="form-control"
+                                    value="{{ $invoice_header->invoice_location }}">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">telefono</label>
+                                <input type="text" name="invoice_phone" id="invoice_phone"
+                                    placeholder="Ingrese el telefono de la empresa" class="form-control"
+                                    value="{{ $invoice_header->invoice_phone }}">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Correo</label>
+                                <input type="email" name="invoice_email" id="invoice_email"
+                                    placeholder="Ingrese la taza de cambio" class="form-control"
+                                    value="{{ $invoice_header->invoice_email }}">
+                            </div>
+                        </form>
+                        <button id="updateInvoiceHeader" class="updateInvoiceHeader">Actualizar</button>
+                    </div>
+                </div>
+            @else
+                <div class="setting-card">
+                    <div class="setting-card-header">
+                        <h3>Información de factura</h3>
+                    </div>
+                    <div class="setting-card-body">
+                        <form method="post">
+                            @csrf
+                            <input type="hidden" id="id" value="{{ $settings[0]->id }}">
+                            <div class="form-group">
+                                <label for="">Ubicación</label>
+                                <input type="text" name="invoice_location" id="invoice_location"
+                                    placeholder="Ingrese la ubicación de la empresa" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">telefono</label>
+                                <input type="text" name="invoice_phone" id="invoice_phone"
+                                    placeholder="Ingrese el telefono de la empresa" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Correo</label>
+                                <input type="email" name="invoice_email" id="invoice_email"
+                                    placeholder="Ingrese la taza de cambio" class="form-control">
+                            </div>
+                        </form>
+                        <button id="updateInvoiceHeader" class="updateInvoiceHeader">Actualizar</button>
+                    </div>
+                </div>
+            @endif
+
+            <input type="hidden" id="id" value="{{ $settings[0]->id }}">
             <div class="setting-card">
                 <div class="setting-card-header">
                     <h3>Tasa de cambio del dolar</h3>
@@ -102,71 +168,6 @@
                     <button id="updateDolarChange" class="updateDolarChange">Actualizar</button>
                 </div>
             </div>
-
-            @if ($invoice_header != null)
-            <div class="setting-card">
-                <div class="setting-card-header">
-                    <h3>Información de factura</h3>
-                </div>
-                <div class="setting-card-body">
-                    <form method="post">
-                        @csrf
-                        <input type="hidden" id="id" value="{{ $settings[0]->id }}">
-                        <div class="form-group">
-                            <label for="">Ubicación</label>
-                            <input type="text" name="invoice_location" id="invoice_location"
-                                placeholder="Ingrese la ubicación de la empresa" class="form-control"
-                                value="{{$invoice_header->invoice_location}}">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="">telefono</label>
-                            <input type="text" name="invoice_phone" id="invoice_phone"
-                                placeholder="Ingrese el telefono de la empresa" class="form-control"
-                                value="{{$invoice_header->invoice_phone}}">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="">Correo</label>
-                            <input type="email" name="invoice_email" id="invoice_email"
-                                placeholder="Ingrese la taza de cambio" class="form-control"
-                                value="{{$invoice_header->invoice_email}}">
-                        </div>
-                    </form>
-                    <button id="updateInvoiceHeader" class="updateInvoiceHeader">Actualizar</button>
-                </div>
-            </div>
-            @else
-            <div class="setting-card">
-                <div class="setting-card-header">
-                    <h3>Información de factura</h3>
-                </div>
-                <div class="setting-card-body">
-                    <form method="post">
-                        @csrf
-                        <input type="hidden" id="id" value="{{ $settings[0]->id }}">
-                        <div class="form-group">
-                            <label for="">Ubicación</label>
-                            <input type="text" name="invoice_location" id="invoice_location"
-                                placeholder="Ingrese la ubicación de la empresa" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="">telefono</label>
-                            <input type="text" name="invoice_phone" id="invoice_phone"
-                                placeholder="Ingrese el telefono de la empresa" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="">Correo</label>
-                            <input type="email" name="invoice_email" id="invoice_email"
-                                placeholder="Ingrese la taza de cambio" class="form-control">
-                        </div>
-                    </form>
-                    <button id="updateInvoiceHeader" class="updateInvoiceHeader">Actualizar</button>
-                </div>
-            </div>
-            @endif
         @endif
     </div>
 </body>

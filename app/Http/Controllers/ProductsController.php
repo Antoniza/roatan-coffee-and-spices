@@ -91,6 +91,6 @@ class ProductsController extends Controller
     {
         $item = Product::find($request->item);
 
-        return response()->json(['message' => 'Buscando...', 'data' => $item, 'quantity'=>$request->quantity]);
+        return response()->json(['message' => 'Buscando...', 'data' => $item, 'quantity' => $request->quantity]);
     }
 }

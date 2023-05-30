@@ -14,7 +14,8 @@ class StartController extends Controller
 {
     public $chart1;
 
-    public function index(){
+    public function index()
+    {
         $chart1 = 'month';
         $chart_options_clients = [
             'chart_title' => 'Nuevos Clientes por Mes',
@@ -40,16 +41,16 @@ class StartController extends Controller
         $chart_sales = new LaravelChart($chart_options_sales);
 
         $todayData = DB::table('invoices')
-        ->selectRaw('count(*) as sales, sum(total) as total')
-        ->whereDate('created_at', Carbon::today())
-        ->get();
+            ->selectRaw('count(*) as sales, sum(total) as total')
+            ->whereDate('created_at', Carbon::today())
+            ->get();
 
         $invoice_setting = InvoiceSetting::all();
 
         $storageControl = DB::table('products')
-        ->select('*')
-        ->where('quantity', '<=', 5)
-        ->get();
+            ->select('*')
+            ->where('quantity', '<=', 5)
+            ->get();
 
         return response()->view('admin.start', compact('chart_clients', 'chart_sales', 'todayData', 'invoice_setting', 'storageControl'));
     }

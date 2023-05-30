@@ -22,7 +22,8 @@
                 @foreach ($clients as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
-                        <td><a href="/dashboard/client-edit/{{$item->id}}" class="edit-link">{{ $item->full_name }} <i class="fa-solid fa-pen-to-square"></i></a></td>
+                        <td><a href="/dashboard/client-edit/{{ $item->id }}" class="edit-link">{{ $item->full_name }}
+                                <i class="fa-solid fa-pen-to-square"></i></a></td>
                         <td>{{ $item->rtn }}</td>
                         <td>{{ $item->email }}</td>
                         <td>{{ $item->phone }}</td>
@@ -87,7 +88,9 @@
                                 </div>
 
                                 <div style="width: 30%; margin-top: -5%;">
-                                    <h6>Impreso el ` + today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate() + ' || ' + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + `</h6>
+                                    <h6>Impreso el ` + today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today
+                            .getDate() + ' || ' + today.getHours() + ":" + today.getMinutes() + ":" +
+                            today.getSeconds() + `</h6>
                                 </div>
                             </div>
 

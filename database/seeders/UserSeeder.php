@@ -25,5 +25,14 @@ class UserSeeder extends Seeder
             'created_at'=> now(),
             'updated_at'=> now(),
         ]);
+
+        DB::table('clients')->insert([
+            'full_name' => 'Consumidor Final',
+            'rtn' => '0000000000000000',
+            'email' => '----------------------------',
+            'phone' => '+(000) 0000-0000',
+            'created_at'=> now(),
+            'updated_at'=> now(),
+        ]);
     }
 }
