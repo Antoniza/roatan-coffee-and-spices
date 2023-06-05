@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('invoices_set');
             $table->integer('invoices');
             $table->double('dolar_change')->default(24.00);
-            $table->json('invoice_header');
+            $table->json('invoice_header')->nullable();
             $table->bigInteger('update_by')->unsigned();
             $table->timestamps();
             $table->foreign('update_by')->references('id')->on('users');
