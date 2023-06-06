@@ -1,27 +1,29 @@
-<div class="information hide" title="Shift + i">
-    <div class="state-hidden">
-        <i class="fa-solid fa-circle-info"></i>
-    </div>
-    <div class="state-container">
-        <span id="closeStatePanel">
-            <i class="fa-sharp fa-solid fa-circle-xmark"></i>
-        </span>
-        <h1>Estado del Sistema.</h1>
-        <div class="state-card">
-            <h3>Quedan:</h3>
-            <span>{{ $invoice_setting[0]->end_range - $invoice_setting[0]->invoices + 1 }}</span> Facturas
-            <hr>
-            @if (count($storageControl) > 0)
-                <h3>Estado de inventario:</h3>
-                @foreach ($storageControl as $item)
-                    <h5>- {{ $item->name }} <span
-                            style="@if ($item->quantity <= 5 and $item->quantity > 1) {{ 'color: yellow' }}@else {{ 'color: rgb(625 31, 31)' }} @endif">(Cantidad:
-                            {{ $item->quantity }} Unidades)</span></h5>
-                @endforeach
-            @endif
+@if (count($invoice_setting) > 0)
+    <div class="information hide" title="Shift + i">
+        <div class="state-hidden">
+            <i class="fa-solid fa-circle-info"></i>
+        </div>
+        <div class="state-container">
+            <span id="closeStatePanel">
+                <i class="fa-sharp fa-solid fa-circle-xmark"></i>
+            </span>
+            <h1>Estado del Sistema.</h1>
+            <div class="state-card">
+                <h3>Quedan:</h3>
+                <span>{{ $invoice_setting[0]->end_range - $invoice_setting[0]->invoices + 1 }}</span> Facturas
+                <hr>
+                @if (count($storageControl) > 0)
+                    <h3>Estado de inventario:</h3>
+                    @foreach ($storageControl as $item)
+                        <h5>- {{ $item->name }} <span
+                                style="@if ($item->quantity <= 5 and $item->quantity > 1) {{ 'color: yellow' }}@else {{ 'color: rgb(625 31, 31)' }} @endif">(Cantidad:
+                                {{ $item->quantity }} Unidades)</span></h5>
+                    @endforeach
+                @endif
+            </div>
         </div>
     </div>
-</div>
+@endif
 <div class="dashboard-container">
     <h1>Información de Hoy</h1>
     <div class="cards-container">
