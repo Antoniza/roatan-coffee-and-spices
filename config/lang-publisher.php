@@ -64,36 +64,6 @@ return [
             'single_quote_opener' => '‘',
             'single_quote_closer' => '’',
         ],
-
-        'locales' => [
-            Locales::FRENCH->value => [
-                'double_quote_opener' => '«&nbsp;',
-                'double_quote_closer' => '&nbsp;»',
-                'single_quote_opener' => '‘',
-                'single_quote_closer' => '’',
-            ],
-
-            Locales::RUSSIAN->value => [
-                'double_quote_opener' => '«',
-                'double_quote_closer' => '»',
-                'single_quote_opener' => '‘',
-                'single_quote_closer' => '’',
-            ],
-
-            Locales::UKRAINIAN->value => [
-                'double_quote_opener' => '«',
-                'double_quote_closer' => '»',
-                'single_quote_opener' => '‘',
-                'single_quote_closer' => '’',
-            ],
-
-            Locales::BELARUSIAN->value => [
-                'double_quote_opener' => '«',
-                'double_quote_closer' => '»',
-                'single_quote_opener' => '‘',
-                'single_quote_closer' => '’',
-            ],
-        ],
     ],
 
     /*
