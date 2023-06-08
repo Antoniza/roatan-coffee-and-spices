@@ -4,7 +4,7 @@
         <hr>
         <p>Casa Matriz: {{$invoice_header->invoice_location}}</p>
         <p>Tel: {{$invoice_header->invoice_phone}}</p>
-        <p>Corre: {{$invoice_header->invoice_email}}</p>
+        <p>Correo: {{$invoice_header->invoice_email}}</p>
         <P>Factura: {{ $invoice->invoice_number }}</P>
         <p>RTN: 11011990004041</p>
         <p>CAI: {{ $invoice_setting->cai }}</p>
