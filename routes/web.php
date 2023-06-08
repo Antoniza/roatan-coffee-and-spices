@@ -4,11 +4,13 @@ use App\Http\Controllers\ClientsController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SalesController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\StartController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -86,6 +88,22 @@ Route::patch('/dashboard/settings/{id}', [SettingsController::class, 'update'])-
 Route::patch('/dashboard/settings-dolar/{id}', [SettingsController::class, 'updateDolar'])->name('dashboard-settings-updateDolar')->middleware('auth');
 
 Route::patch('/dashboard/settings-invoice_header/{id}', [SettingsController::class, 'updateInvoice'])->name('dashboard-settings-updateInvoice')->middleware('auth');
+
+// * USER ROUTES
+
+Route::patch('/update-user/{id}', [UserController::class, 'update_user'])->name('dashboard-update-user')->middleware('auth');
+
+Route::patch('/update-password/{id}', [UserController::class, 'update_password'])->name('dashboard-update-password')->middleware('auth');
+
+// * PASSWORD SETTINGS
+
+Route::get('/forget-password', [PasswordController::class, 'forget_password'])->name('forget-password')->middleware('guest');
+
+Route::post('/forget-password', [PasswordController::class, 'submit_forget_password'])->name('forget-password-post');
+
+Route::get('/reset-password/{token}', [PasswordController::class, 'reset_password'])->name('reset-password');
+
+Route::post('/reset-password', [PasswordController::class, 'submit_reset_password'])->name('reset-password-post');
 
 Route::fallback(function() {
     return view('errors/404');

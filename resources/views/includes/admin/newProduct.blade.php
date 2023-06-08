@@ -45,10 +45,6 @@
                         <label for="product_g">Grabado</label>
                         <input type="radio" name="product_type-taxes" id="product_g" class="taxes_type form-control" value="G">
                     </div>
-                    <div class="form-group">
-                        <label for="product_g">Selectivo</label>
-                        <input type="radio" name="product_type-taxes" id="product_s" class="taxes_type form-control" value="S">
-                    </div>
                 </div>
             </form>
         </div>

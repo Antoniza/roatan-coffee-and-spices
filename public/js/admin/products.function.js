@@ -185,7 +185,7 @@ jQuery("#edit-product-button").click(function (e) {
         name: jQuery("#edit_product_name").val(),
         first_price: jQuery("#edit_product_first-price").val(),
         second_price: jQuery("#edit_product_second-price").val(),
-        quantity: jQuery("#edit_product_quantity").val(),
+        quantity: parseFloat(jQuery("#product_quantity_text").html()) + parseFloat(jQuery("#edit_product_quantity").val()),
         discount: jQuery("#edit_product_discount").val(),
         type_taxes: $(
             "input[name=edit_product_type-taxes]:checked",

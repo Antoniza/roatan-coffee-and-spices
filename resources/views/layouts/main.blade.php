@@ -94,7 +94,7 @@
 
                         <div class="profile">
                             <img src="{{ asset('img/profile2.jpg') }}" alt="" />
-                            <span>{{ Auth::user()->name }}</span>
+                            <span id="username">{{ Auth::user()->name }}</span>
                             <input type="hidden" name="" id="user_id" value="{{ Auth::user()->id }}">
                         </div>
                     </header>

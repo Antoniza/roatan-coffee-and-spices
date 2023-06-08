@@ -1,98 +1,128 @@
-
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-body{
-    background-image: url("../img/coffee_banner.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+body {
+  background-image: url("../img/coffee_banner.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-.container{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.container .left-content{
-    width: 60%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.8);
+.container .left-content {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
-.container .left-content img{
-    width: 80%;
-    filter: saturate(150%);
+.container .left-content img {
+  width: 80%;
+  filter: saturate(150%);
 }
 
-.container .right-content{
-    width: 40%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    backdrop-filter: blur(15px);
+.container .right-content {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  backdrop-filter: blur(15px);
 }
 
-.right-content h2{
-    color: #fff;
-    font-size: 32px;
-    text-decoration: underline;
+.right-content h2 {
+  color: #fff;
+  font-size: 32px;
+  text-decoration: underline;
 }
 
-.right-content form{
-    width: 80%;
-    height: 350px;
-    display: flex;
-    flex-direction: column;
-    padding: 3.5rem;
-    gap: 10px;
-    background-color: #ffffff10;
-    border-radius: 15px;
+.right-content form {
+  width: 80%;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  padding: 3.5rem;
+  gap: 10px;
+  background-color: #ffffff10;
+  border-radius: 15px;
 }
 
-.right-content form input{
-    padding: .5rem;
+.right-content form input {
+  padding: .5rem;
 }
 
 
-.right-content form .form-group{
-    display: flex;
-    flex-direction: column;
+.right-content form .form-group {
+  display: flex;
+  flex-direction: column;
 }
 
-.right-content form .form-group label{
-    color: #fff;
-    font-size: large;
-    margin-bottom: .3rem;
-    user-select: none;
+.right-content form .form-group label {
+  color: #fff;
+  font-size: large;
+  margin-bottom: .3rem;
+  user-select: none;
 }
 
-.right-content form .form-group label span{
-    margin-left: .5rem;
+.right-content form .form-group label span {
+  margin-left: .5rem;
 }
 
-.right-content form button{
-    padding: .8rem;
-    cursor: pointer;
-    background-color: rgb(73, 43, 19);
-    border: none;
-    color: #fff;
-    font-size: 25px;
-    border-radius: 5px;
+.right-content form button {
+  padding: .8rem;
+  cursor: pointer;
+  background-color: rgb(73, 43, 19);
+  border: none;
+  color: #fff;
+  font-size: 25px;
+  border-radius: 5px;
 }
 
-.right-content form button:hover{
-    background-color: rgb(97, 53, 17);
+.right-content form button:hover {
+  background-color: rgb(97, 53, 17);
+}
+
+.fail_login {
+  width: 360px;
+  padding: 1rem;
+  background-color: rgba(255, 0, 0, 0.75);
+  margin-bottom: .5rem;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.success_alert {
+  width: 360px;
+  padding: 1rem;
+  background-color: rgba(0, 255, 26, 0.75);
+  margin-bottom: .5rem;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  color: #000000;
+}
+
+form a{
+  text-transform: lowercase;
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
 }

@@ -113,3 +113,56 @@
 .updateInvoiceHeader {
   background-color: rgb(77, 86, 206);
 }
+
+.user-container{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  gap: 20px;
+  padding: 1rem;
+  background-color: #00000060;
+  border-radius: 15px;
+}
+
+.user-container div{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-container span{
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.user-container input{
+  width: 40%;
+  height: 40px;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  padding: .5rem 1rem;
+}
+
+.update_password{
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.update_password input{
+  width: 90%;
+}
+
+.update_password span{
+  cursor: pointer;
+}
+
+#hide_current_password,
+#hide_new_password,
+#hide_confirm_password{
+  display: none;
+}

@@ -31,8 +31,8 @@
                     <center><span id="edit_discount-error"></span></center>
                 </div>
                 <div class="form-group">
-                    <label for="">Cantidad (U/C)</label>
-                    <input type="number" name="edit_product_quantity" id="edit_product_quantity" class="form-control" value="{{$product->quantity}}" min="1">
+                    <label for="">Cantidad actual: <span id="product_quantity_text">{{$product->quantity}}</span></label>
+                    <input type="number" name="edit_product_quantity" id="edit_product_quantity" class="form-control">
                     <center><span id="edit_quantity-error"></span></center>
                 </div>
             </div>
@@ -48,12 +48,6 @@
                     <input type="radio" name="edit_product_type-taxes" id="edit_product_g" @if ($product->type_taxes == 'G')
                     @checked(true)
                 @endif  class="edit_taxes_type form-control" value="G">
-                </div>
-                <div class="form-group">
-                    <label for="product_g">Selectivo</label>
-                    <input type="radio" name="edit_product_type-taxes" id="edit_product_s" @if ($product->type_taxes == 'S')
-                    @checked(true)
-                @endif  class="edit_taxes_type form-control" value="S">
                 </div>
             </div>
         </form>

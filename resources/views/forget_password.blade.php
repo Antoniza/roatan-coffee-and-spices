@@ -18,25 +18,18 @@
             <img src="{{ asset('img/RoatancoffeeSpices.png') }}" alt="">
         </div>
         <div class="right-content">
-            <h2>Inicio de Sesión</h2>
-            <form action="{{ route('post-login') }}" method="post">
-                @if (session('fail'))
-                    <div class="fail_login">{{ session('fail') }}</div>
-                @endif
-                @if (session('message'))
-                    <div class="success_alert">{{ session('message') }}</div>
+            <h2>Recuperación de Contraseña</h2>
+            <form action="{{ route('forget-password-post') }}" method="post">
+                @if (session('success'))
+                    <div class="success_alert">{{ session('success') }}</div>
                 @endif
                 @csrf
                 <div class="form-group">
                     <label for=""><i class="fa-solid fa-user"></i><span>Correo</span></label>
                     <input type="email" name="email" autofocus>
                 </div>
-                <div class="form-group">
-                    <label for=""><i class="fa-solid fa-lock"></i><span>Contraseña</span></label>
-                    <input type="password" name="password" id="password">
-                </div>
-                <button type="submit">Ingresar</button>
-                <a href="{{ route('forget-password') }}">¿Olvido su contraseña?</a>
+                <button type="submit">Enviar Correo</button>
+                <a href="{{ route('login') }}">Ir a inicio de sesión</a>
             </form>
         </div>
     </div>
