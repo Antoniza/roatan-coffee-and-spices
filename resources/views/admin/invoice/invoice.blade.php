@@ -77,12 +77,12 @@
     </div>
 
     <div class="preview_invoice_total">
-        <span>Importe Grabado 15%: </span>
+        <span>Importe Gravado 15%: </span>
         <span>L. {{ $invoice->sub_isv }}</span>
     </div>
 
     <div class="preview_invoice_total">
-        <span>Importe Grabado 18%: </span>
+        <span>Importe Gravado 18%: </span>
         <span>L. 00.00</span>
     </div>
 

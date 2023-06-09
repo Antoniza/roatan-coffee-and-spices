@@ -19,7 +19,7 @@
                     <center><span id="edit_first_price-error"></span></center>
                 </div>
                 <div class="form-group">
-                    <label for="">Precio Grabado</label>
+                    <label for="">Precio Gravado</label>
                     <input type="number" name="edit_product_second-price" id="edit_product_second-price" class="form-control" step=".01" value="{{$product->second_price}}" min="0">
                     <center><span id="edit_second_price-error"></span></center>
                 </div>
@@ -44,7 +44,7 @@
                     @endif class="edit_taxes_type form-control" value="E">
                 </div>
                 <div class="form-group">
-                    <label for="product_g">Grabado</label>
+                    <label for="product_g">Gravado</label>
                     <input type="radio" name="edit_product_type-taxes" id="edit_product_g" @if ($product->type_taxes == 'G')
                     @checked(true)
                 @endif  class="edit_taxes_type form-control" value="G">

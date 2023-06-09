@@ -19,7 +19,7 @@
                         <center><span id="first_price-error"></span></center>
                     </div>
                     <div class="form-group">
-                        <label for="">Precio Grabado</label>
+                        <label for="">Precio Gravado</label>
                         <input type="number" name="product_second-price" id="product_second-price" class="form-control" step=".01" value="0" disabled>
                         <center><span id="second_price-error"></span></center>
                     </div>
@@ -42,7 +42,7 @@
                         <input type="radio" name="product_type-taxes" id="product_e" checked class="taxes_type form-control" value="E">
                     </div>
                     <div class="form-group">
-                        <label for="product_g">Grabado</label>
+                        <label for="product_g">Gravado</label>
                         <input type="radio" name="product_type-taxes" id="product_g" class="taxes_type form-control" value="G">
                     </div>
                 </div>

@@ -14,7 +14,7 @@
                     <th>Nombre</th>
                     <th>Cantidad Inv.</th>
                     <th>Precio</th>
-                    <th>Precio Grabado</th>
+                    <th>Precio Gravado</th>
                     <th>Impuestos</th>
                     <th>Acciones</th>
                 </tr>
@@ -32,7 +32,7 @@
                             @if ($item->type_taxes == 'E')
                                 Exento
                             @else
-                                Grabado
+                                Gravado
                             @endif
                         </td>
                         <td>
