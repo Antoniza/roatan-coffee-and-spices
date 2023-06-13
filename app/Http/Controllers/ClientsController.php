@@ -17,7 +17,7 @@ class ClientsController extends Controller
     {
         $validator = $request->validate([
             'full_name' => 'required',
-            'rtn' => 'required|min:14|unique:clients',
+            'rtn' => 'required|min:13|unique:clients',
             'email' => 'required',
             'phone' => 'required',
         ]);
@@ -35,7 +35,8 @@ class ClientsController extends Controller
     public function delete($id)
     {
         $client = Client::find($id);
-        $client->delete();
+        $client->state = 'Deleted';
+        $client->save();
 
         return response()->json(['message' => 'Cliente eliminado correctamente.']);
     }

@@ -1,6 +1,6 @@
 jQuery(document).ready(function () {
 
-  let isInClients = false;
+  var isInClients = false;
 
   $('#newClientButton').click(function () {
     $('#clients-modal').addClass('show');
@@ -14,6 +14,7 @@ jQuery(document).ready(function () {
   // * SAVE NEW CLIENT DATA
 
   jQuery("#submit-client-button").click(function (e) {
+    isInClients = true;
     $('.loading').css('display', 'flex');
     var dataForm = {
       full_name: jQuery("#client_full_name").val(),
@@ -50,6 +51,9 @@ jQuery(document).ready(function () {
 
         if(isInClients){
           $('.data-container').load('/dashboard/clients');
+          isInClients = false;
+        }else{
+          console.log('Out of panel');
         }
 
         $('.loading').css('display', 'none');

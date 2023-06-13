@@ -20,6 +20,7 @@
             </thead>
             <tbody>
                 @foreach ($clients as $item)
+                    @if ($item->state != "Deleted")
                     <tr>
                         <td>{{ $item->id }}</td>
                         <td><a href="/dashboard/client-edit/{{ $item->id }}" class="edit-link">{{ $item->full_name }}
@@ -33,6 +34,7 @@
                                 data-token="{{ csrf_token() }}"><i class="fa-solid fa-trash"></i> Borrar</button>
                         </td>
                     </tr>
+                    @endif
                 @endforeach
             </tbody>
         </table>
