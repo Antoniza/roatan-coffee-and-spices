@@ -30,8 +30,12 @@
                         <td>{{ $item->phone }}</td>
                         <td>{{ $item->created_at }}</td>
                         <td>
+                            @if ($item->full_name == "Consumidor Final")
+                                Predefinido
+                            @else
                             <button class="delete deleteClient" data-id="{{ $item->id }}"
                                 data-token="{{ csrf_token() }}"><i class="fa-solid fa-trash"></i> Borrar</button>
+                            @endif
                         </td>
                     </tr>
                     @endif
