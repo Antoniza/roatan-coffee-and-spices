@@ -1,11 +1,9 @@
 jQuery(document).ready(function () {
 
-  var isInClients = false;
-
   $('#newClientButton').click(function () {
     $('#clients-modal').addClass('show');
     $('.modal-shadow').addClass('show');
-    isInClients = true;
+    localStorage.setItem('clientsPanel', true);
   });
 
   $('#client_phone').inputmask('+(999) 9999-9999');
@@ -14,7 +12,6 @@ jQuery(document).ready(function () {
   // * SAVE NEW CLIENT DATA
 
   jQuery("#submit-client-button").click(function (e) {
-    isInClients = true;
     $('.loading').css('display', 'flex');
     var dataForm = {
       full_name: jQuery("#client_full_name").val(),
@@ -49,11 +46,9 @@ jQuery(document).ready(function () {
           button: "¡Perfecto!",
         });
 
-        if(isInClients){
+        if(localStorage.getItem('clientsPanel')){
           $('.data-container').load('/dashboard/clients');
-          isInClients = false;
-        }else{
-          console.log('Out of panel');
+          localStorage.removeItem('clientsPanel');
         }
 
         $('.loading').css('display', 'none');

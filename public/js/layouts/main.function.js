@@ -62,11 +62,13 @@ $('.menu-item.logout_button').click(function (e) {
 $('.modal-shadow').click(function () {
   $('.modal').removeClass('show');
   $(this).removeClass('show');
+  localStorage.removeItem('clientsPanel');
 })
 
 $('.cancel-button').click(function () {
   $('.modal').removeClass('show');
   $('.modal-shadow').removeClass('show');
+  localStorage.removeItem('clientsPanel');
 });
 
 $('#hide-alert').click(function () {

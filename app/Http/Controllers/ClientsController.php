@@ -74,7 +74,9 @@ class ClientsController extends Controller
 
         $response = array();
         foreach ($autocomplate as $autocomplate) {
-            $response[] = array("value" => $autocomplate->id, "label" => $autocomplate->full_name);
+            if ($autocomplate->state != "Deleted") {
+                $response[] = array("value" => $autocomplate->id, "label" => $autocomplate->full_name);
+            }
         }
 
         echo json_encode($response);
